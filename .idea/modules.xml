@@ -9,7 +9,6 @@
       <module fileurl="file://$PROJECT_DIR$/moudle_app/moudle_app.iml" filepath="$PROJECT_DIR$/moudle_app/moudle_app.iml" />
       <module fileurl="file://$PROJECT_DIR$/moudle_login/moudle_login.iml" filepath="$PROJECT_DIR$/moudle_login/moudle_login.iml" />
       <module fileurl="file://$PROJECT_DIR$/moudle_main/moudle_main.iml" filepath="$PROJECT_DIR$/moudle_main/moudle_main.iml" />
-      <module fileurl="file://E:\Android_studio_workspace\MyBoBaoGe\moudle_login\moudle_main.iml" filepath="E:\Android_studio_workspace\MyBoBaoGe\moudle_login\moudle_main.iml" />
     </modules>
   </component>
 </project>
