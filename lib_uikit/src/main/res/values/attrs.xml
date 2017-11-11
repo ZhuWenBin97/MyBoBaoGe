@@ -4,4 +4,5 @@
         <attr name="value" format="string"/>
         <attr name="fontFile" format="string"/>
     </declare-styleable>
+
 </resources>

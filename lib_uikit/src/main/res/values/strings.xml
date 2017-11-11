@@ -1,28 +1,34 @@
 <resources>
     <string name="app_name">AutoShufflingView</string>
     <declare-styleable name="AutoShufflingView">
-        <attr name="radio_off" format="reference" />
-        <attr name="radio_on" format="reference" />
-        <attr name="loading" format="reference" />
-        <attr name="load_error" format="reference" />
+        <attr name="radio_off" format="reference"/>
+        <attr name="radio_on" format="reference"/>
+        <attr name="loading" format="reference"/>
+        <attr name="load_error" format="reference"/>
         <attr name="indicator_gravity" format="integer">
-            <enum name="Left" value="-1" />
-            <enum name="Center" value="0" />
-            <enum name="Right" value="1" />
+            <enum name="Left" value="-1"/>
+            <enum name="Center" value="0"/>
+            <enum name="Right" value="1"/>
         </attr>
-        <attr name="autoShufflingTime" format="integer" />
-        <attr name="autoShuffling" format="boolean" />
+        <attr name="autoShufflingTime" format="integer"/>
+        <attr name="autoShuffling" format="boolean"/>
     </declare-styleable>
     <declare-styleable name="PullRefreshLayout">
 
     </declare-styleable>
     <declare-styleable name="ScrollingTextView">
-        <attr name="text" format="string" />
-        <attr name="textSize" format="dimension" />
-        <attr name="textInterval" format="dimension" />
-        <attr name="textColor" format="color" />
-        <attr name="scrollSpeed" format="integer" />
+        <attr name="text" format="string"/>
+        <attr name="textSize" format="dimension"/>
+        <attr name="textInterval" format="dimension"/>
+        <attr name="textColor" format="color"/>
+        <attr name="scrollSpeed" format="integer"/>
     </declare-styleable>
+    <declare-styleable name="BottomTabBar">
+        <attr name="textColor" format="color"/>
+        <attr name="textSelectColor" format="color"/>
+        <attr name="backgroundColor" format="color"/>
+    </declare-styleable>
+
 
     <!-- TODO: Remove or change this placeholder text -->
     <string name="hello_blank_fragment">Hello blank fragment</string>
