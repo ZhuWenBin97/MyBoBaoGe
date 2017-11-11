@@ -1,0 +1,54 @@
+// Top-level build file where you can add configuration options common to all sub-projects/modules.
+
+buildscript {
+    repositories {
+        jcenter()
+        google()
+    }
+    dependencies {
+        classpath 'com.android.tools.build:gradle:3.0.0'
+        //添加apt插件
+//        classpath 'com.neenbedankt.gradle.plugins:android-apt:1.8'
+        // NOTE: Do not place your application dependencies here; they belong
+        // in the individual module build.gradle files
+    }
+}
+
+allprojects {
+    repositories {
+        jcenter()
+        maven { url "https://jitpack.io" }
+        google()
+    }
+}
+
+task clean(type: Delete) {
+    delete rootProject.buildDir
+}
+ext {
+    // Sdk and tools
+    //localBuildToolsVersion是gradle.properties中的数据
+    buildToolsVersion = localBuildToolsVersion
+    compileSdkVersion = 25
+    minSdkVersion = 16
+    targetSdkVersion = 25
+    versionCode = 1
+    versionName = "3.51"
+    javaVersion = JavaVersion.VERSION_1_8
+
+    // App dependencies version
+    supportLibraryVersion = "25.3.1"
+    retrofitVersion = "2.1.0"
+    glideVersion = "3.7.0"
+    loggerVersion = "1.15"
+    eventbusVersion = "3.0.0"
+    gsonVersion = "2.8.0"
+    photoViewVersion = "2.0.0"
+
+    //检查时间：2017.6.6
+    annotationProcessor = "1.0.3"
+    routerVersion = "1.2.1.1"
+    easyRecyclerVersion = "4.4.0"
+    cookieVersion = "v1.0.1"
+    toastyVersion = "1.1.3"
+}

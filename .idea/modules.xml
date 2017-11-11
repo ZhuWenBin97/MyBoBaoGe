@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="ProjectModuleManager">
+    <modules>
+      <module fileurl="file://$PROJECT_DIR$/MyBoBaoGe.iml" filepath="$PROJECT_DIR$/MyBoBaoGe.iml" />
+      <module fileurl="file://$PROJECT_DIR$/lib_basis/lib_basis.iml" filepath="$PROJECT_DIR$/lib_basis/lib_basis.iml" />
+      <module fileurl="file://$PROJECT_DIR$/lib_common/lib_common.iml" filepath="$PROJECT_DIR$/lib_common/lib_common.iml" />
+      <module fileurl="file://$PROJECT_DIR$/lib_uikit/lib_uikit.iml" filepath="$PROJECT_DIR$/lib_uikit/lib_uikit.iml" />
+      <module fileurl="file://$PROJECT_DIR$/moudle_app/moudle_app.iml" filepath="$PROJECT_DIR$/moudle_app/moudle_app.iml" />
+      <module fileurl="file://$PROJECT_DIR$/moudle_login/moudle_login.iml" filepath="$PROJECT_DIR$/moudle_login/moudle_login.iml" />
+      <module fileurl="file://$PROJECT_DIR$/moudle_main/moudle_main.iml" filepath="$PROJECT_DIR$/moudle_main/moudle_main.iml" />
+      <module fileurl="file://E:\Android_studio_workspace\MyBoBaoGe\moudle_login\moudle_main.iml" filepath="E:\Android_studio_workspace\MyBoBaoGe\moudle_login\moudle_main.iml" />
+    </modules>
+  </component>
+</project>

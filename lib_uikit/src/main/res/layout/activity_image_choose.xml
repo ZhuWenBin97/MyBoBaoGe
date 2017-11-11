@@ -1,0 +1,66 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    tools:context="com.zcy.hnkjxy.customview.ImageChooseActivity">
+
+    <RelativeLayout
+        android:id="@+id/actionBarChooseImg"
+        android:layout_width="match_parent"
+        android:layout_height="50dp"
+        android:paddingLeft="10dp"
+        android:paddingRight="10dp"
+        android:background="@color/colorRed">
+        <TextView
+            android:id="@+id/tvChooseImgLeft"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerVertical="true"
+            android:layout_alignParentLeft="true"
+            android:layout_margin="2dp"
+            android:textSize="20sp"
+            android:textColor="@color/colorRedWhite"
+
+            android:text="相册"/>
+        <TextView
+            android:id="@+id/tvChooseImgMiddle"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerHorizontal="true"
+            android:layout_centerVertical="true"
+            android:textSize="20sp"
+            android:textColor="@color/colorRedWhite"
+            android:text="全部照片"/>
+        <TextView
+            android:id="@+id/tvChooseImgMiddle2"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerHorizontal="true"
+            android:layout_centerVertical="true"
+            android:textSize="20sp"
+            android:visibility="gone"
+            android:textColor="@color/colorRedWhite"
+            android:text="相册选择"/>
+        <TextView
+            android:id="@+id/tvChooseImgRight"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerVertical="true"
+            android:layout_alignParentRight="true"
+            android:layout_margin="2dp"
+            android:textSize="20sp"
+            android:textColor="@color/colorRedWhite"
+
+            android:text="取消"
+            />
+    </RelativeLayout>
+
+    <android.support.v4.view.ViewPager
+        android:id="@+id/vpChooseImg"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+    </android.support.v4.view.ViewPager>
+</LinearLayout>

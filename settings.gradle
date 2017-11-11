@@ -1,0 +1,1 @@
+include ':lib_common', ':lib_basis', ':lib_uikit', ':moudle_app', ':moudle_login', ':moudle_main'
