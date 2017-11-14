@@ -11,14 +11,6 @@ import android.view.ViewGroup;
 
 import com.zhuwb.moudle_main.R;
 
-/**
- * A simple {@link Fragment} subclass.
- * Activities that contain this fragment must implement the
- * {@link Fragment_me.OnFragmentInteractionListener} interface
- * to handle interaction events.
- * Use the {@link Fragment_me#newInstance} factory method to
- * create an instance of this fragment.
- */
 public class Fragment_me extends Fragment {
 
     @Nullable

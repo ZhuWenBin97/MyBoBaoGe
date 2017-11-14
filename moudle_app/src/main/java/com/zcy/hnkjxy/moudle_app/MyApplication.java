@@ -19,7 +19,7 @@ import org.acra.sender.ReportSenderException;
  * Created by zhang chen yang on 2017/11/2 0002.
  */
 @ReportsCrashes(
-        mailTo = "zcy_2018@163.com",
+        mailTo = "911152556@qq.com",
         mode = ReportingInteractionMode.DIALOG,
         customReportContent = {
                 ReportField.APP_VERSION_NAME,
@@ -33,7 +33,7 @@ import org.acra.sender.ReportSenderException;
         resToastText = R.string.res_toast_text,
         resDialogText = R.string.res_dialog_text,
         resDialogTitle = R.string.res_dialog_title)
-public class MyApplication extends BaseApplication{
+public class MyApplication extends BaseApplication {
     @Override
     public void onCreate() {
         super.onCreate();
@@ -46,6 +46,7 @@ public class MyApplication extends BaseApplication{
         //崩溃日志记录初始化
         ACRA.init(this);
     }
+
     /**
      * 发送崩溃日志
      */

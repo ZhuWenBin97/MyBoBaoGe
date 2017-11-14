@@ -1,6 +1,10 @@
 package com.guiying.module.common.base;
 
+import android.Manifest;
 import android.app.Application;
+import android.content.pm.PackageManager;
+import android.support.v4.app.ActivityCompat;
+import android.telephony.TelephonyManager;
 
 import com.guiying.module.common.config.Config;
 import com.guiying.module.common.utils.Utils;
@@ -37,8 +41,18 @@ public class BaseApplication extends Application {
         super.onCreate();
         sInstance = this;
         Config.androidID = android.os.Build.MODEL;
-//        TelephonyManager telephonyManager = (TelephonyManager) getSystemService(TELEPHONY_SERVICE);
-//        Config.androidIMEI= telephonyManager.getDeviceId();
+        TelephonyManager telephonyManager = (TelephonyManager) getSystemService(TELEPHONY_SERVICE);
+        if (ActivityCompat.checkSelfPermission(this, Manifest.permission.READ_PHONE_STATE) != PackageManager.PERMISSION_GRANTED) {
+            // TODO: Consider calling
+            //    ActivityCompat#requestPermissions
+            // here to request the missing permissions, and then overriding
+            //   public void onRequestPermissionsResult(int requestCode, String[] permissions,
+            //                                          int[] grantResults)
+            // to handle the case where the user grants the permission. See the documentation
+            // for ActivityCompat#requestPermissions for more details.
+            return;
+        }
+        Config.androidIMEI = telephonyManager.getDeviceId();
         Logger.init("pattern").logLevel(LogLevel.FULL);
         Utils.init(this);
         mAppDelegateList = ClassUtils.getObjectsWithInterface(this, ApplicationDelegate.class, ROOT_PACKAGE);

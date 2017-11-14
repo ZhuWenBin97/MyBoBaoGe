@@ -10,9 +10,11 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 
+import com.alibaba.android.arouter.facade.annotation.Route;
 import com.guiying.module.common.base.LazyFragment;
 import com.zhuwb.lib_magicindicator.MagicIndicator;
 import com.zhuwb.moudle_main.R;
+import com.zhuwb.moudle_main.R2;
 import com.zhuwb.moudle_main.presenter.IMessagePresenter;
 import com.zhuwb.moudle_main.presenter.MessagePresenter;
 
@@ -22,9 +24,9 @@ import butterknife.ButterKnife;
 
 
 public class Fragment_message extends LazyFragment {
-    @BindView(R.id.main_fragment_magicIndicator)
+    @BindView(R2.id.main_fragment_magicIndicator)
     MagicIndicator mainFragmentMagicIndicator;
-    @BindView(R.id.main_fragment_viewPager)
+    @BindView(R2.id.main_fragment_viewPager)
     ViewPager mainFragmentViewPager;
 
     private FragmentManager manager;

@@ -24,6 +24,7 @@ import java.util.TimerTask;
 
 /**
  * Created by zhang chen yang on 2017/9/26 0026.
+ * 轮播图
  */
 
 public class AutoShufflingView extends LinearLayout implements ViewPager.OnPageChangeListener, CliCkListener {

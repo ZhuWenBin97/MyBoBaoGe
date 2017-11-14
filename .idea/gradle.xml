@@ -10,6 +10,7 @@
             <option value="$PROJECT_DIR$" />
             <option value="$PROJECT_DIR$/lib_basis" />
             <option value="$PROJECT_DIR$/lib_common" />
+            <option value="$PROJECT_DIR$/lib_magicindicator" />
             <option value="$PROJECT_DIR$/lib_uikit" />
             <option value="$PROJECT_DIR$/moudle_app" />
             <option value="$PROJECT_DIR$/moudle_login" />

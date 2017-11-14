@@ -1,4 +1,5 @@
 <resources>
+    <attr name="textColor" format="color"/>
     <string name="app_name">AutoShufflingView</string>
     <declare-styleable name="AutoShufflingView">
         <attr name="radio_off" format="reference"/>
@@ -20,11 +21,11 @@
         <attr name="text" format="string"/>
         <attr name="textSize" format="dimension"/>
         <attr name="textInterval" format="dimension"/>
-        <attr name="textColor" format="color"/>
+        <attr name="textColor"/>
         <attr name="scrollSpeed" format="integer"/>
     </declare-styleable>
     <declare-styleable name="BottomTabBar">
-        <attr name="textColor" format="color"/>
+        <attr name="textColor"/>
         <attr name="textSelectColor" format="color"/>
         <attr name="backgroundColor" format="color"/>
     </declare-styleable>

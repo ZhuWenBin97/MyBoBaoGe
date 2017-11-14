@@ -1,6 +1,7 @@
 package com.zcy.hnkjxy.moudle_main;
 
 import android.os.Bundle;
+import android.support.v4.app.Fragment;
 import android.support.v7.app.AppCompatActivity;
 import android.view.View;
 
@@ -12,7 +13,7 @@ public class MainActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
-        ARouter.getInstance().build("/main/login").navigation();
+        ARouter.getInstance().build("/main/Message").navigation();
 
     }
 

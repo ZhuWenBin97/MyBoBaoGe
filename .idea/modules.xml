@@ -5,6 +5,7 @@
       <module fileurl="file://$PROJECT_DIR$/MyBoBaoGe.iml" filepath="$PROJECT_DIR$/MyBoBaoGe.iml" />
       <module fileurl="file://$PROJECT_DIR$/lib_basis/lib_basis.iml" filepath="$PROJECT_DIR$/lib_basis/lib_basis.iml" />
       <module fileurl="file://$PROJECT_DIR$/lib_common/lib_common.iml" filepath="$PROJECT_DIR$/lib_common/lib_common.iml" />
+      <module fileurl="file://$PROJECT_DIR$/lib_magicindicator/lib_magicindicator.iml" filepath="$PROJECT_DIR$/lib_magicindicator/lib_magicindicator.iml" />
       <module fileurl="file://$PROJECT_DIR$/lib_uikit/lib_uikit.iml" filepath="$PROJECT_DIR$/lib_uikit/lib_uikit.iml" />
       <module fileurl="file://$PROJECT_DIR$/moudle_app/moudle_app.iml" filepath="$PROJECT_DIR$/moudle_app/moudle_app.iml" />
       <module fileurl="file://$PROJECT_DIR$/moudle_login/moudle_login.iml" filepath="$PROJECT_DIR$/moudle_login/moudle_login.iml" />
