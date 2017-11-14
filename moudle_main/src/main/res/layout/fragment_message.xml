@@ -1,12 +1,28 @@
-<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
-                xmlns:tools="http://schemas.android.com/tools"
-                android:layout_width="match_parent"
-                android:layout_height="match_parent"
-                tools:context="com.zhuwb.moudle_main.view.Fragment_message">
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+              xmlns:tools="http://schemas.android.com/tools"
+              android:layout_width="match_parent"
+              android:layout_height="match_parent"
+              android:orientation="vertical"
+              tools:context="com.zhuwb.moudle_main.view.Fragment_message">
 
-    <TextView
+    <SearchView
         android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:text="消息"/>
+        android:layout_height="wrap_content"
+        android:iconifiedByDefault="false"
+        android:queryHint="@string/main_message_searchviewhint"
+        />
 
-</RelativeLayout>
+    <com.zhuwb.lib_magicindicator.MagicIndicator
+        android:id="@+id/main_fragment_magicIndicator"
+        android:layout_width="match_parent"
+        android:layout_height="40dp"
+        android:background="@color/ThemeColor"/>
+
+    <android.support.v4.view.ViewPager
+        android:id="@+id/main_fragment_viewPager"
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_weight="1"/>
+
+
+</LinearLayout>
