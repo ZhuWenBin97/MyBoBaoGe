@@ -72,7 +72,7 @@ public class MessagePresenter implements IMessagePresenter {
         this.mainFragmentViewPager = mainFragmentViewPager;
         this.context = context;
         this.manager = manager;
-        AutoShufflingPresenter.getImages();
+
         newFragment();
 
         //MagicIndicator的配置

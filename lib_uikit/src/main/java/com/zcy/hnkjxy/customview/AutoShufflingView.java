@@ -79,8 +79,9 @@ public class AutoShufflingView extends LinearLayout implements ViewPager.OnPageC
         indicatorGravityFlag = a.getInteger(R.styleable.AutoShufflingView_indicator_gravity, 1);
         GlideLoader.loadErrorImg = loadError;
         GlideLoader.loadingImg = loading;
-        if (shufflingTime <= 0)
+        if (shufflingTime <= 0) {
             shufflingTime = 3000;
+        }
         init((Activity) context);
     }
 
@@ -106,19 +107,21 @@ public class AutoShufflingView extends LinearLayout implements ViewPager.OnPageC
         } else {
             indicatorParam.gravity = Gravity.BOTTOM | Gravity.RIGHT;
         }
-        indicatorParam.setMargins( dp2px(20), dp2px(10), dp2px(20), dp2px(10));
+        indicatorParam.setMargins(dp2px(20), dp2px(10), dp2px(20), dp2px(10));
         pFlayout.addView(mLlIndicator, indicatorParam);
         //
 
     }
 
     public void setImages(String[] imageUrl) {
-        if (imageUrl.length <= 0 || imageUrl[0] == null)
+        if (imageUrl.length <= 0 || imageUrl[0] == null) {
             throw new NullPointerException("imageUrl is null,图片URL为空");
+        }
         //添加数据到ViewPager
         mImgUrl = imageUrl;
-        if (adapter == null)
+        if (adapter == null) {
             adapter = new ShufflingAdapter(mActivity, mImgUrl);
+        }
         mVpShuffling.setAdapter(adapter);
         //添加指示器
         indImages = new ImageView[imageUrl.length];
@@ -144,8 +147,9 @@ public class AutoShufflingView extends LinearLayout implements ViewPager.OnPageC
                     AutoShufflingView.this.post(new Runnable() {
                         @Override
                         public void run() {
-                            if (isTouch)
+                            if (isTouch) {
                                 return;
+                            }
                             int next = mVpShuffling.getCurrentItem() + 1;
                             mVpShuffling.setCurrentItem(next);
                         }
@@ -202,9 +206,9 @@ public class AutoShufflingView extends LinearLayout implements ViewPager.OnPageC
 
     @Override
     public void onClick(int position) {
-        if (onShufflingItemClickListener != null)
+        if (onShufflingItemClickListener != null) {
             this.onShufflingItemClickListener.onClickItem(position);
-
+        }
     }
 
     public void clearCache(Context context) {
@@ -213,7 +217,8 @@ public class AutoShufflingView extends LinearLayout implements ViewPager.OnPageC
 
     @Override
     public void onLongClick(int position) {
-        if (onShufflingItemClickListener != null)
+        if (onShufflingItemClickListener != null) {
             this.onShufflingItemClickListener.onLongClickItem(position);
+        }
     }
 }

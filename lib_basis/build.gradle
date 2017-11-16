@@ -49,6 +49,8 @@ dependencies {
     compile files('libs/volley.jar')
     //dagger2
     compile 'com.google.dagger:dagger:2.4'
+    //轮播图
+    compile 'com.youth.banner:banner:1.4.9'
 
 //    apt 'com.google.dagger:dagger-compiler:2.4'
     //java注解

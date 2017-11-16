@@ -64,7 +64,7 @@ public class Util {
         String bobao_token = MD5.getMD5(str);
         params.put("spm", URLEncoder.encode(spm));
         params.put("bobao_token", bobao_token);
-        String sq_url = Config.HTTP;
+        String sq_url = Config.Httpall;
         myKey = params.keySet();
         for (String key : myKey) {
             sq_url += key + "=" + params.get(key) + "&";
