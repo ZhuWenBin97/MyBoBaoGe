@@ -11,6 +11,6 @@ import com.zcy.hnkjxy.customview.AutoShufflingView;
  *         创建时间 :2017/11/15 14:48
  */
 
-public interface IAutoShufflingPresenter {
-    void getImages(FragmentActivity context,Banner banner);
+public interface IBannerPresenter {
+    void getImages(FragmentActivity context, Banner banner, Integer mold);
 }

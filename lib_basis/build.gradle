@@ -44,13 +44,15 @@ dependencies {
     compile "com.github.GrenderG:Toasty:$rootProject.toastyVersion"
     //router
     compile "com.alibaba:arouter-api:$rootProject.routerVersion"
-   // annotationProcessor "com.alibaba:arouter-compiler:$rootProject.routerVersion"
+    // annotationProcessor "com.alibaba:arouter-compiler:$rootProject.routerVersion"
     compile 'ch.acra:acra:4.9.2'
     compile files('libs/volley.jar')
     //dagger2
     compile 'com.google.dagger:dagger:2.4'
     //轮播图
     compile 'com.youth.banner:banner:1.4.9'
+    //EventBus
+    compile 'org.greenrobot:eventbus:3.0.0'
 
 //    apt 'com.google.dagger:dagger-compiler:2.4'
     //java注解

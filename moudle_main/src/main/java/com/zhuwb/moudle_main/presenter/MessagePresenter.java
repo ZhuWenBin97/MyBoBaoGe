@@ -15,12 +15,12 @@ import com.zhuwb.lib_magicindicator.buildins.commonnavigator.abs.CommonNavigator
 import com.zhuwb.lib_magicindicator.buildins.commonnavigator.abs.IPagerIndicator;
 import com.zhuwb.lib_magicindicator.buildins.commonnavigator.abs.IPagerTitleView;
 import com.zhuwb.lib_magicindicator.buildins.commonnavigator.titles.ClipPagerTitleView;
-import com.zhuwb.moudle_main.view.Fragment_brand;
-import com.zhuwb.moudle_main.view.Fragment_food;
-import com.zhuwb.moudle_main.view.Fragment_instantmessage;
-import com.zhuwb.moudle_main.view.Fragment_lostandfound;
-import com.zhuwb.moudle_main.view.Fragment_moldbaby;
-import com.zhuwb.moudle_main.view.Fragment_recruitment;
+import com.zhuwb.moudle_main.view.indicator.Fragment_brand;
+import com.zhuwb.moudle_main.view.indicator.Fragment_food;
+import com.zhuwb.moudle_main.view.indicator.Fragment_instantmessage;
+import com.zhuwb.moudle_main.view.indicator.Fragment_lostandfound;
+import com.zhuwb.moudle_main.view.indicator.Fragment_moldbaby;
+import com.zhuwb.moudle_main.view.indicator.Fragment_recruitment;
 
 import java.util.ArrayList;
 import java.util.Arrays;

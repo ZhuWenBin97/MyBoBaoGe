@@ -14,16 +14,17 @@ public abstract class LazyFragment extends Fragment {
 
     /**
      * 在这里实现Fragment数据加载
+     *
      * @param isVisibleToUser
      */
     @Override
     public void setUserVisibleHint(boolean isVisibleToUser) {
         super.setUserVisibleHint(isVisibleToUser);
-        if (getUserVisibleHint()){
-            isVisible=true;
+        if (getUserVisibleHint()) {
+            isVisible = true;
             onVisible();
-        }else {
-            isVisible=false;
+        } else {
+            isVisible = false;
             onInvisible();
         }
 
@@ -32,8 +33,9 @@ public abstract class LazyFragment extends Fragment {
 
     protected abstract void onInvisible();
 
-    protected  void onVisible(){
+    protected void onVisible() {
         lazyload();
+
     }
 
     protected abstract void lazyload();

@@ -6,9 +6,10 @@
     android:gravity="center"
     android:orientation="vertical">
 
-    <TextView
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="失物招领"
-        android:textSize="@dimen/size_50dp"/>
+    <com.zcy.hnkjxy.customview.RefreshListView
+        android:id="@+id/main_mold_lof_refreshlistview"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+    </com.zcy.hnkjxy.customview.RefreshListView>
 </LinearLayout>

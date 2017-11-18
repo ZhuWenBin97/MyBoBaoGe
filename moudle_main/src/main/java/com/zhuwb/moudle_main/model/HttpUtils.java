@@ -1,4 +1,4 @@
-package com.zhuwb.moudle_main;
+package com.zhuwb.moudle_main.model;
 
 import okhttp3.Callback;
 import okhttp3.OkHttpClient;

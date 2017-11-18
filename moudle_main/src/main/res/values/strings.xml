@@ -4,4 +4,19 @@
     <!-- TODO: Remove or change this placeholder text -->
     <string name="hello_blank_fragment">Hello blank fragment</string>
     <string name="main_message_searchviewhint">请输入搜索内容</string>
+    <string name="main_lv_test_1">商圈</string>
+    <string name="main_lv_test_2">找货</string>
+    <string name="main_lv_test_3">今天 23:16</string>
+    <string name="main_lv_test_4">马上拨打</string>
+    <string name="main_lv_test_5">任务已完成</string>
+    <string name="main_lv_test_6">来自 [北京]</string>
+    <string name="main_lv_test_7">如图款式，要现货，直接收购，要两万件。要得很急，非诚勿扰 。</string>
+    <string name="main_lv_test_8">100人浏览</string>
+    <string name="main_lv_test_9">推广</string>
+    <string name="main_lv_test_0">抢位置</string>
+    <string name="main_lv_test_10">0赞</string>
+    <string name="main_lv_test_11">抢红包</string>
+    <string name="mian_lv_test_12">分享</string>
+    <string name="main_lv_test_13">评论</string>
+    <string name="mian_test_001">通知：播报哥3.5正式上线，感谢您对播报哥的关注和支持！</string>
 </resources>
