@@ -3,6 +3,7 @@ package com.zhuwb.moudle_main.presenter;
 
 import android.content.Context;
 import android.support.v4.app.FragmentActivity;
+import android.support.v4.app.FragmentManager;
 import android.util.Log;
 
 import com.google.gson.Gson;
@@ -31,7 +32,7 @@ public class ListMessage implements IListMessage {
     private Context context;
 
     @Override
-    public void getMessage(final FragmentActivity context, final RefreshListView listView, Integer mold) {
+    public void getMessage(final FragmentActivity context, final RefreshListView listView, Integer mold, final FragmentManager manager) {
         this.context = context;
 
         HashMap<String, String> map = new HashMap<String, String>();
@@ -61,11 +62,12 @@ public class ListMessage implements IListMessage {
                 String json = response.body().string();
                 Gson gson = new Gson();
                 ListMessageitem Message = gson.fromJson(json, ListMessageitem.class);
+
                 final List<ListMessageitem.MessageBean> MessageBeans = Message.getMessage();
                 context.runOnUiThread(new Runnable() {
                     @Override
                     public void run() {
-                        listView.setAdapter(new MyLvAdapter(context, MessageBeans));
+                        listView.setAdapter(new MyLvAdapter(context, MessageBeans, manager));
                     }
                 });
 

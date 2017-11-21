@@ -3,11 +3,12 @@
               android:layout_width="match_parent"
               android:layout_height="match_parent"
               android:orientation="vertical"
-              tools:context="com.zhuwb.moudle_main.view.Fragment_message">
+              tools:context="com.zhuwb.moudle_main.view.Fragmentmessage">
 
     <SearchView
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
+        android:background="@color/ThemeColor"
         android:iconifiedByDefault="false"
         android:queryHint="@string/main_message_searchviewhint"
         />

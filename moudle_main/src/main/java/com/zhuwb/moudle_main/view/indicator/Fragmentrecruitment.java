@@ -3,6 +3,7 @@ package com.zhuwb.moudle_main.view.indicator;
 import android.os.Bundle;
 import android.support.annotation.Nullable;
 import android.support.v4.app.Fragment;
+import android.support.v4.app.FragmentManager;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -23,29 +24,32 @@ import butterknife.Unbinder;
 
 /**
  * @author ZhuWB
- *         创建时间 :2017/11/14 08:46
+ *         创建时间 :2017/11/13 10:46
  */
 
-public class Fragment_lostandfound extends LazyFragment implements RefreshListView.OnLoadMoreListener, RefreshListView.OnRefreshListener {
+public class Fragmentrecruitment extends LazyFragment implements RefreshListView.OnLoadMoreListener, RefreshListView.OnRefreshListener {
     private Banner mainbanner;
-    @BindView(R2.id.main_mold_lof_refreshlistview)
-    RefreshListView mainMoldLofRefreshlistview;
+    @BindView(R2.id.main_mold_recruitment_refreshlistview)
+    RefreshListView mainMoldRecruitmentRefreshlistview;
     Unbinder unbinder;
+    private FragmentManager manager = getFragmentManager();
+
+    public Fragmentrecruitment(FragmentManager manager) {
+        this.manager = manager;
+    }
 
     /**
-     * 失物招领mold值为6
+     * 招聘街mold值为4
      */
-    private int mold = 6;
-    /**
-     * 标志位，标致初始化已完成
-     */
+    private int mold = 4;
+    //标志位，标致初始化已完成
     private boolean isPrepared;
 
     @Nullable
     @Override
     public View onCreateView(LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
         super.onCreateView(inflater, container, savedInstanceState);
-        View view = inflater.inflate(R.layout.fragment_losandfound, container, false);
+        View view = inflater.inflate(R.layout.fragment_recruitment, container, false);
         unbinder = ButterKnife.bind(this, view);
         isPrepared = true;
         lazyload();
@@ -55,30 +59,20 @@ public class Fragment_lostandfound extends LazyFragment implements RefreshListVi
     private void init() {
         View view1 = LayoutInflater.from(getContext()).inflate(R.layout.main_banner, null);
         mainbanner = (Banner) view1.findViewById(R.id.main_lv_banner);
-        mainMoldLofRefreshlistview.addHeaderView(view1);
+        mainMoldRecruitmentRefreshlistview.addHeaderView(view1);
 
         //接口new 轮播图实例
         IBannerPresenter iBannerPresenter = new BannerPresenter();
         iBannerPresenter.getImages(getActivity(), mainbanner, mold);
         //newListView的实例
         IListMessage iListMessage = new ListMessage();
-        iListMessage.getMessage(getActivity(), mainMoldLofRefreshlistview, mold);
+        iListMessage.getMessage(getActivity(), mainMoldRecruitmentRefreshlistview, mold, manager);
     }
 
     @Override
     public void onDestroyView() {
         super.onDestroyView();
         unbinder.unbind();
-    }
-
-    @Override
-    public void onRefresh() {
-
-    }
-
-    @Override
-    public void onLoadMore() {
-
     }
 
     @Override
@@ -92,6 +86,16 @@ public class Fragment_lostandfound extends LazyFragment implements RefreshListVi
             return;
         }
         init();
+
+    }
+
+    @Override
+    public void onRefresh() {
+
+    }
+
+    @Override
+    public void onLoadMore() {
 
     }
 }

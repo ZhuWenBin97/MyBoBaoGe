@@ -1,6 +1,7 @@
 package com.zhuwb.moudle_main.presenter;
 
 import android.support.v4.app.FragmentActivity;
+import android.support.v4.app.FragmentManager;
 
 import com.zcy.hnkjxy.customview.RefreshListView;
 
@@ -10,5 +11,5 @@ import com.zcy.hnkjxy.customview.RefreshListView;
  */
 
 public interface IListMessage {
-    void getMessage(FragmentActivity context, RefreshListView listView,Integer mold);
+    void getMessage(FragmentActivity context, RefreshListView listView, Integer mold, FragmentManager manager);
 }

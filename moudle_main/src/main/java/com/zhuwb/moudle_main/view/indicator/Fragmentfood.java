@@ -3,6 +3,7 @@ package com.zhuwb.moudle_main.view.indicator;
 import android.os.Bundle;
 import android.support.annotation.Nullable;
 import android.support.v4.app.Fragment;
+import android.support.v4.app.FragmentManager;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -26,11 +27,16 @@ import butterknife.Unbinder;
  *         创建时间 :2017/11/13 10:46
  */
 
-public class Fragment_food extends LazyFragment implements RefreshListView.OnLoadMoreListener, RefreshListView.OnRefreshListener{
+public class Fragmentfood extends LazyFragment implements RefreshListView.OnLoadMoreListener, RefreshListView.OnRefreshListener {
     private Banner mainbanner;
     @BindView(R2.id.main_mold_food_refreshlistview)
     RefreshListView mainMoldFoodRefreshlistview;
     Unbinder unbinder;
+    private FragmentManager manager = getFragmentManager();
+
+    public Fragmentfood(FragmentManager manager) {
+        this.manager = manager;
+    }
 
     /**
      * 美食街mold值为7
@@ -50,6 +56,7 @@ public class Fragment_food extends LazyFragment implements RefreshListView.OnLoa
         lazyload();
         return view;
     }
+
     private void init() {
         View view1 = LayoutInflater.from(getContext()).inflate(R.layout.main_banner, null);
         mainbanner = (Banner) view1.findViewById(R.id.main_lv_banner);
@@ -60,7 +67,7 @@ public class Fragment_food extends LazyFragment implements RefreshListView.OnLoa
         iBannerPresenter.getImages(getActivity(), mainbanner, mold);
         //newListView的实例
         IListMessage iListMessage = new ListMessage();
-        iListMessage.getMessage(getActivity(), mainMoldFoodRefreshlistview, mold);
+        iListMessage.getMessage(getActivity(), mainMoldFoodRefreshlistview, mold, manager);
     }
 
     @Override

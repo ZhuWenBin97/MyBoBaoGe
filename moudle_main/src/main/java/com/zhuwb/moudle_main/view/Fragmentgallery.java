@@ -11,12 +11,13 @@ import android.view.ViewGroup;
 
 import com.zhuwb.moudle_main.R;
 
-public class Fragment_groupbying extends Fragment {
+
+public class Fragmentgallery extends Fragment {
     @Nullable
     @Override
     public View onCreateView(LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
         super.onCreateView(inflater, container, savedInstanceState);
-        View view = inflater.inflate(R.layout.fragment_groupbying, container, false);
+        View view = inflater.inflate(R.layout.fragment_gallery, container, false);
         return view;
     }
 }

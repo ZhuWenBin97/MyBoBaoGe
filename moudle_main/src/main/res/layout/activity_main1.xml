@@ -5,6 +5,9 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:background="@color/ThemeColor"
+    android:clipToPadding="false"
+    android:fitsSystemWindows="true"
     tools:context="com.zhuwb.moudle_main.view.MainActivity">
 
     <com.zcy.hnkjxy.customview.BottomTabBar

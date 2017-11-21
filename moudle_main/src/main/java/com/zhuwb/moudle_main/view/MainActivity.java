@@ -1,10 +1,13 @@
 package com.zhuwb.moudle_main.view;
 
+import android.graphics.Color;
+import android.os.Build;
 import android.os.Bundle;
 import android.support.v4.app.FragmentActivity;
 import android.support.v4.app.FragmentManager;
 import android.util.Log;
-import android.widget.Toast;
+import android.view.View;
+import android.view.WindowManager;
 
 import com.alibaba.android.arouter.facade.annotation.Route;
 import com.zcy.hnkjxy.customview.BottomTabBar;
@@ -32,10 +35,13 @@ public class MainActivity extends FragmentActivity {
         //ARouter.getInstance().build("/main/message").navigation();
         //tb = (BottomTabBar) findViewById(R.id.main_activty_bottom);
         IMainPresenter presenter = new MainPresenter();
-        int i = 0;
         fragmentManager = getSupportFragmentManager();
         presenter.init(tb, fragmentManager);
         Log.i(TAG, "onCreate: " + "log测试");
+        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.KITKAT) {
+            getWindow().addFlags(WindowManager.LayoutParams.FLAG_TRANSLUCENT_STATUS);
+            getWindow().addFlags(WindowManager.LayoutParams.FLAG_TRANSLUCENT_NAVIGATION);
+        }
     }
 
 }

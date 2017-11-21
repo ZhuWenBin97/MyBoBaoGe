@@ -6,11 +6,11 @@ import android.support.v4.app.FragmentManager;
 import com.zcy.hnkjxy.customview.BottomTabBar;
 import com.zcy.hnkjxy.customview.bean.BarEntity;
 import com.zhuwb.moudle_main.R;
-import com.zhuwb.moudle_main.view.Fragment_gallery;
-import com.zhuwb.moudle_main.view.Fragment_groupbying;
-import com.zhuwb.moudle_main.view.Fragment_me;
-import com.zhuwb.moudle_main.view.Fragment_message;
-import com.zhuwb.moudle_main.view.Fragment_release;
+import com.zhuwb.moudle_main.view.Fragmentgallery;
+import com.zhuwb.moudle_main.view.Fragmentgroupbying;
+import com.zhuwb.moudle_main.view.Fragmentme;
+import com.zhuwb.moudle_main.view.Fragmentmessage;
+import com.zhuwb.moudle_main.view.Fragmentrelease;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -21,11 +21,11 @@ import java.util.List;
  */
 
 public class MainPresenter implements BottomTabBar.OnSelectListener, IMainPresenter {
-    private Fragment_message fragment_message;
-    private Fragment_groupbying fragment_groupbying;
-    private Fragment_gallery fragment_gallery;
-    private Fragment_me fragment_me;
-    private Fragment_release fragment_release;
+    private Fragmentmessage fragment_message;
+    private Fragmentgroupbying fragment_groupbying;
+    private Fragmentgallery fragment_gallery;
+    private Fragmentme fragment_me;
+    private Fragmentrelease fragment_release;
     private BottomTabBar tb;
     private FragmentManager fragmentManager;
     /**
@@ -53,31 +53,31 @@ public class MainPresenter implements BottomTabBar.OnSelectListener, IMainPresen
         switch (position) {
             case 0:
                 if (fragment_message == null) {
-                    fragment_message = new Fragment_message();
+                    fragment_message = new Fragmentmessage();
                 }
                 tb.switchContent(fragment_message);
                 break;
             case 1:
                 if (fragment_groupbying == null) {
-                    fragment_groupbying = new Fragment_groupbying();
+                    fragment_groupbying = new Fragmentgroupbying();
                 }
                 tb.switchContent(fragment_groupbying);
                 break;
             case 2:
                 if (fragment_release == null) {
-                    fragment_release = new Fragment_release();
+                    fragment_release = new Fragmentrelease();
                 }
                 tb.switchContent(fragment_release);
                 break;
             case 3:
                 if (fragment_gallery == null) {
-                    fragment_gallery = new Fragment_gallery();
+                    fragment_gallery = new Fragmentgallery();
                 }
                 tb.switchContent(fragment_gallery);
                 break;
             case 4:
                 if (fragment_me == null) {
-                    fragment_me = new Fragment_me();
+                    fragment_me = new Fragmentme();
                 }
                 tb.switchContent(fragment_me);
                 break;

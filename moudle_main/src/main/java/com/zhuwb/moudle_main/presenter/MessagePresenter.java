@@ -15,12 +15,12 @@ import com.zhuwb.lib_magicindicator.buildins.commonnavigator.abs.CommonNavigator
 import com.zhuwb.lib_magicindicator.buildins.commonnavigator.abs.IPagerIndicator;
 import com.zhuwb.lib_magicindicator.buildins.commonnavigator.abs.IPagerTitleView;
 import com.zhuwb.lib_magicindicator.buildins.commonnavigator.titles.ClipPagerTitleView;
-import com.zhuwb.moudle_main.view.indicator.Fragment_brand;
-import com.zhuwb.moudle_main.view.indicator.Fragment_food;
-import com.zhuwb.moudle_main.view.indicator.Fragment_instantmessage;
-import com.zhuwb.moudle_main.view.indicator.Fragment_lostandfound;
-import com.zhuwb.moudle_main.view.indicator.Fragment_moldbaby;
-import com.zhuwb.moudle_main.view.indicator.Fragment_recruitment;
+import com.zhuwb.moudle_main.view.indicator.Fragmentbrand;
+import com.zhuwb.moudle_main.view.indicator.Fragmentfood;
+import com.zhuwb.moudle_main.view.indicator.Fragmentinstantmessage;
+import com.zhuwb.moudle_main.view.indicator.Fragmentlostandfound;
+import com.zhuwb.moudle_main.view.indicator.Fragmentmoldbaby;
+import com.zhuwb.moudle_main.view.indicator.Fragmentrecruitment;
 
 import java.util.ArrayList;
 import java.util.Arrays;
@@ -52,12 +52,12 @@ public class MessagePresenter implements IMessagePresenter {
     /**
      * 街道Fragment
      */
-    private Fragment_instantmessage fragment_instantmessage;
-    private Fragment_moldbaby fragment_moldbaby;
-    private Fragment_brand fragment_brand;
-    private Fragment_recruitment fragment_recruitment;
-    private Fragment_food fragment_food;
-    private Fragment_lostandfound fragment_lostandfound;
+    private Fragmentinstantmessage fragment_instantmessage;
+    private Fragmentmoldbaby fragment_moldbaby;
+    private Fragmentbrand fragment_brand;
+    private Fragmentrecruitment fragment_recruitment;
+    private Fragmentfood fragment_food;
+    private Fragmentlostandfound fragment_lostandfound;
     private ViewPager mainFragmentViewPager;
     private MagicIndicator mainFragmentMagicIndicator;
     /**
@@ -119,12 +119,12 @@ public class MessagePresenter implements IMessagePresenter {
     public void newFragment() {
         if (fragmentList == null) {
             fragmentList = new ArrayList<>();
-            fragment_instantmessage = new Fragment_instantmessage();
-            fragment_moldbaby = new Fragment_moldbaby();
-            fragment_brand = new Fragment_brand();
-            fragment_recruitment = new Fragment_recruitment();
-            fragment_food = new Fragment_food();
-            fragment_lostandfound = new Fragment_lostandfound();
+            fragment_instantmessage = new Fragmentinstantmessage(manager);
+            fragment_moldbaby = new Fragmentmoldbaby(manager);
+            fragment_brand = new Fragmentbrand(manager);
+            fragment_recruitment = new Fragmentrecruitment(manager);
+            fragment_food = new Fragmentfood(manager);
+            fragment_lostandfound = new Fragmentlostandfound(manager);
 
             fragmentList.add(fragment_instantmessage);
             fragmentList.add(fragment_moldbaby);

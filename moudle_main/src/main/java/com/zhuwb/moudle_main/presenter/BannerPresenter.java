@@ -1,6 +1,7 @@
 package com.zhuwb.moudle_main.presenter;
 
 import android.content.Context;
+import android.content.Intent;
 import android.support.v4.app.FragmentActivity;
 import android.util.Log;
 import android.widget.ImageView;
@@ -16,6 +17,7 @@ import com.youth.banner.listener.OnBannerListener;
 import com.youth.banner.loader.ImageLoader;
 import com.zhuwb.moudle_main.model.HttpUtils;
 import com.zhuwb.moudle_main.bean.BannerMessage;
+import com.zhuwb.moudle_main.view.BannerParticularsActivity;
 
 import org.greenrobot.eventbus.EventBus;
 
@@ -35,7 +37,7 @@ import static com.guiying.module.common.utils.Util.getUrl;
  *         创建时间 :2017/11/14 10:34
  */
 
-public class BannerPresenter implements IBannerPresenter{
+public class BannerPresenter implements IBannerPresenter {
     private static final String TAG = "AutoShufflingPresenter";
     private Context context;
     /**
@@ -85,7 +87,7 @@ public class BannerPresenter implements IBannerPresenter{
         map.put("imei", Config.androidIMEI);
         map.put("mold", mold.toString());
         String url = getUrl(map);
-        Log.i(TAG, "getImages: " + url);
+         Log.i(TAG, "getImages: " + url);
         HttpUtils.requestNetwork(url, new Callback() {
             @Override
             public void onFailure(Call call, IOException e) {
@@ -120,7 +122,11 @@ public class BannerPresenter implements IBannerPresenter{
                         banner.setOnBannerListener(new OnBannerListener() {
                             @Override
                             public void OnBannerClick(int position) {
-                                EventBus.getDefault().post(messageBeans);
+                                BannerMessage bannerMessage = new BannerMessage();
+                                bannerMessage.setCode(position);
+                                bannerMessage.setMessage(messageBeans);
+                                Log.i(TAG, "OnBannerClick: " + "点击了" + position);
+                                EventBus.getDefault().post(bannerMessage);
                             }
                         });
                         banner.start();
