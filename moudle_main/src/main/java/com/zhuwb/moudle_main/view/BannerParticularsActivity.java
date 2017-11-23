@@ -1,14 +1,13 @@
 package com.zhuwb.moudle_main.view;
 
-import android.graphics.Color;
 import android.os.Build;
 import android.os.Bundle;
 import android.support.annotation.Nullable;
 import android.support.v4.app.FragmentManager;
 import android.support.v7.app.AppCompatActivity;
 import android.util.Log;
-import android.view.View;
 import android.view.WindowManager;
+import android.widget.LinearLayout;
 import android.widget.RelativeLayout;
 import android.widget.TextView;
 
@@ -25,6 +24,7 @@ import org.greenrobot.eventbus.ThreadMode;
 
 import butterknife.BindView;
 import butterknife.ButterKnife;
+import butterknife.OnClick;
 
 /**
  * @author ZhuWB
@@ -46,6 +46,8 @@ public class BannerParticularsActivity extends AppCompatActivity {
     TextView mainBannerItemMessage;
     @BindView(R2.id.main_banner_ninegridimageview)
     NineGridImageView mainBannerNinegridimageview;
+    @BindView(R2.id.main_banner_back)
+    LinearLayout mainBannerBack;
     private BannerMessage bannerMessage;
 
     @Override
@@ -62,13 +64,13 @@ public class BannerParticularsActivity extends AppCompatActivity {
     }
 
     @Subscribe(threadMode = ThreadMode.MAIN, sticky = true)
-    public void onEvent(BannerMessage.MessageBean messageBean) {
-        mainBannerItemTypearea.setText(messageBean.getMsg_type_name());
-        mainBannerItemTime.setText(messageBean.getMessage_verify_date());
-        mainBannerItemAddress.setText(messageBean.getMessage_ads());
-        mainBannerItemMessage.setText(messageBean.getMessage_content());
+    public void onEvent(BannerMessage.BannerBean bannerBean) {
+        mainBannerItemTypearea.setText(bannerBean.getMsg_type_name());
+        mainBannerItemTime.setText(bannerBean.getMessage_verify_date());
+        mainBannerItemAddress.setText(bannerBean.getMessage_ads());
+        mainBannerItemMessage.setText(bannerBean.getMessage_content());
         IBannerParticularsPresenter iBannerParticularsPresenter = new BannerParticularsPresenter();
-        iBannerParticularsPresenter.setImageAdapter(mainBannerNinegridimageview, messageBean.getMessage_images(), manager);
+        iBannerParticularsPresenter.setImageAdapter(mainBannerNinegridimageview, bannerBean.getMessage_images(), manager);
 
 
     }
@@ -77,5 +79,10 @@ public class BannerParticularsActivity extends AppCompatActivity {
     protected void onDestroy() {
         super.onDestroy();
         EventBus.getDefault().unregister(this);
+    }
+
+    @OnClick(R2.id.main_banner_back)
+    public void onViewClicked() {
+        this.finish();
     }
 }

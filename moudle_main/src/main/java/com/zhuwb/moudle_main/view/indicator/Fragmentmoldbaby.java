@@ -1,29 +1,27 @@
 package com.zhuwb.moudle_main.view.indicator;
 
-import android.content.Intent;
 import android.os.Bundle;
 import android.support.annotation.Nullable;
 import android.support.v4.app.FragmentManager;
-import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 
+import com.bumptech.glide.Glide;
 import com.guiying.module.common.base.LazyFragment;
+import com.squareup.leakcanary.RefWatcher;
 import com.youth.banner.Banner;
 import com.zcy.hnkjxy.customview.RefreshListView;
+import com.zhuwb.moudle_main.HttpUtils.HttpUtil;
 import com.zhuwb.moudle_main.R;
 import com.zhuwb.moudle_main.R2;
-import com.zhuwb.moudle_main.bean.BannerMessage;
-import com.zhuwb.moudle_main.presenter.BannerPresenter;
-import com.zhuwb.moudle_main.presenter.IBannerPresenter;
-import com.zhuwb.moudle_main.presenter.IListMessage;
-import com.zhuwb.moudle_main.presenter.ListMessage;
-import com.zhuwb.moudle_main.view.BannerParticularsActivity;
+import com.zhuwb.moudle_main.adpter.MyLvAdapter;
+import com.zhuwb.moudle_main.bean.ListMessageitem;
+import com.zhuwb.moudle_main.contract.MessageContract;
+import com.zhuwb.moudle_main.presenter.MainMessagePresenter;
 
-import org.greenrobot.eventbus.EventBus;
-import org.greenrobot.eventbus.Subscribe;
-import org.greenrobot.eventbus.ThreadMode;
+
+import java.util.List;
 
 import butterknife.BindView;
 import butterknife.ButterKnife;
@@ -34,13 +32,15 @@ import butterknife.Unbinder;
  *         创建时间 :2017/11/13 10:46
  */
 
-public class Fragmentmoldbaby extends LazyFragment implements RefreshListView.OnLoadMoreListener, RefreshListView.OnRefreshListener {
+public class Fragmentmoldbaby extends LazyFragment implements RefreshListView.OnLoadMoreListener, RefreshListView.OnRefreshListener, MessageContract.IFragmentView {
     private static final String TAG = "Fragmentmoldbaby";
     private Banner mainbanner;
     @BindView(R2.id.main_mold_baby_refreshlistview)
     RefreshListView mainMoldBabyRefreshlistview;
     Unbinder unbinder;
-    private FragmentManager manager ;
+    private FragmentManager manager;
+    private MainMessagePresenter messagePresenter;
+    private MyLvAdapter adapter;
 
     public Fragmentmoldbaby(FragmentManager manager) {
         this.manager = manager;
@@ -50,6 +50,14 @@ public class Fragmentmoldbaby extends LazyFragment implements RefreshListView.On
      * 爆款街mold值为2
      */
     private int mold = 2;
+    /**
+     * 页码
+     */
+    private int curPage = 1;
+    /**
+     * 爆款街type值为2
+     */
+    private int type = 2;
 
     /**
      * 标志位，标致初始化已完成
@@ -65,6 +73,7 @@ public class Fragmentmoldbaby extends LazyFragment implements RefreshListView.On
         unbinder = ButterKnife.bind(this, view);
         isPrepared = true;
         lazyload();
+
         return view;
     }
 
@@ -74,12 +83,10 @@ public class Fragmentmoldbaby extends LazyFragment implements RefreshListView.On
         mainbanner = (Banner) view1.findViewById(R.id.main_lv_banner);
         mainMoldBabyRefreshlistview.addHeaderView(view1);
 
-        //接口new 轮播图实例
-        IBannerPresenter iBannerPresenter = new BannerPresenter();
-        iBannerPresenter.getImages(getActivity(), mainbanner, mold);
         //newListView的实例
-        IListMessage iListMessage = new ListMessage();
-        iListMessage.getMessage(getActivity(), mainMoldBabyRefreshlistview, mold,manager);
+        messagePresenter = new MainMessagePresenter(mold,  type, this);
+        messagePresenter.loadListMessage(curPage);
+        messagePresenter.loadBannerMessage(mainbanner);
     }
 
 
@@ -87,6 +94,7 @@ public class Fragmentmoldbaby extends LazyFragment implements RefreshListView.On
     public void onDestroyView() {
         super.onDestroyView();
         unbinder.unbind();
+        Glide.get(getContext()).clearMemory();
     }
 
     @Override
@@ -132,5 +140,28 @@ public class Fragmentmoldbaby extends LazyFragment implements RefreshListView.On
                 mainMoldBabyRefreshlistview.closeLoadMore();
             }
         }).start();
+    }
+
+    @Override
+    public void showList(List<ListMessageitem.MessageBean> messageBeans) {
+        adapter = new MyLvAdapter(getContext(), messageBeans, manager);
+        getActivity().runOnUiThread(new Runnable() {
+            @Override
+            public void run() {
+                mainMoldBabyRefreshlistview.setAdapter(adapter);
+            }
+        });
+    }
+
+    @Override
+    public void showBanner(final List<String> listImgs) {
+        getActivity().runOnUiThread(new Runnable() {
+            @Override
+            public void run() {
+                mainbanner.setImages(listImgs);
+                mainbanner.start();
+            }
+        });
+
     }
 }

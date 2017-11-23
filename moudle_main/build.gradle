@@ -57,5 +57,6 @@ dependencies {
     compile 'com.jaeger.ninegridimageview:library:1.0.2'
     //黄油刀
     compile 'com.jakewharton:butterknife:8.4.0'
+
     annotationProcessor 'com.jakewharton:butterknife-compiler:8.4.0'
 }

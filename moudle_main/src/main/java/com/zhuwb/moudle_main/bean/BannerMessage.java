@@ -16,7 +16,7 @@ public class BannerMessage {
      */
 
     private int code;
-    private List<MessageBean> message;
+    private List<BannerBean> message;
 
     public int getCode() {
         return code;
@@ -26,15 +26,15 @@ public class BannerMessage {
         this.code = code;
     }
 
-    public List<MessageBean> getMessage() {
+    public List<BannerBean> getMessage() {
         return message;
     }
 
-    public void setMessage(List<MessageBean> message) {
+    public void setMessage(List<BannerBean> message) {
         this.message = message;
     }
 
-    public static class MessageBean {
+    public static class BannerBean {
         /**
          * msg_type_name : 推广信息
          * message_id : 0

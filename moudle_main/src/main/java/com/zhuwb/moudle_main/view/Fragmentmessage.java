@@ -27,6 +27,7 @@ import org.greenrobot.eventbus.Subscribe;
 import org.greenrobot.eventbus.ThreadMode;
 
 import java.io.Serializable;
+import java.util.List;
 
 import butterknife.BindView;
 import butterknife.ButterKnife;
@@ -62,8 +63,8 @@ public class Fragmentmessage extends LazyFragment {
     //接收到轮播图点击事件的传参
     @Subscribe(threadMode = ThreadMode.MAIN)
     public void onEvent(BannerMessage bannerMessage) {
-        BannerMessage.MessageBean messageBean = bannerMessage.getMessage().get(bannerMessage.getCode());
-        EventBus.getDefault().postSticky(messageBean);
+        BannerMessage.BannerBean bannerBean = bannerMessage.getMessage().get(bannerMessage.getCode());
+        EventBus.getDefault().postSticky(bannerBean);
         startActivity(new Intent(getActivity().getApplicationContext(), BannerParticularsActivity.class));
     }
 

@@ -1,6 +1,5 @@
 package com.zhuwb.moudle_main.view.indicator;
 
-import android.content.Intent;
 import android.os.Bundle;
 import android.support.annotation.Nullable;
 import android.support.v4.app.Fragment;
@@ -10,45 +9,36 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 
-import com.guiying.module.common.base.LazyFragment;
+import com.bumptech.glide.Glide;
 import com.youth.banner.Banner;
 import com.zcy.hnkjxy.customview.RefreshListView;
 import com.zhuwb.moudle_main.R;
 import com.zhuwb.moudle_main.R2;
-import com.zhuwb.moudle_main.bean.BannerMessage;
-import com.zhuwb.moudle_main.model.HttpUtils;
-import com.zhuwb.moudle_main.presenter.BannerPresenter;
-import com.zhuwb.moudle_main.presenter.IBannerPresenter;
-import com.zhuwb.moudle_main.presenter.IListMessage;
-import com.zhuwb.moudle_main.presenter.ListMessage;
-import com.zhuwb.moudle_main.view.BannerParticularsActivity;
+import com.zhuwb.moudle_main.adpter.MyLvAdapter;
+import com.zhuwb.moudle_main.bean.ListMessageitem;
+import com.zhuwb.moudle_main.contract.MessageContract;
+import com.zhuwb.moudle_main.presenter.MainMessagePresenter;
 
 
-import org.greenrobot.eventbus.EventBus;
-import org.greenrobot.eventbus.Subscribe;
-import org.greenrobot.eventbus.ThreadMode;
-
-import java.io.IOException;
-import java.util.HashMap;
+import java.util.ArrayList;
+import java.util.List;
 
 import butterknife.BindView;
 import butterknife.ButterKnife;
 import butterknife.Unbinder;
-import okhttp3.Call;
-import okhttp3.Callback;
-import okhttp3.Response;
-
-import static com.guiying.module.common.utils.Util.getUrl;
 
 /**
  * @author ZhuWB
  *         创建时间 :2017/11/13 10:46
  */
 
-public class Fragmentinstantmessage extends Fragment implements RefreshListView.OnLoadMoreListener, RefreshListView.OnRefreshListener {
+public class Fragmentinstantmessage extends Fragment implements RefreshListView.OnLoadMoreListener, RefreshListView.OnRefreshListener, MessageContract.IFragmentView {
     private static final String TAG = "Fragment_instantmessage";
     private Banner mainbanner;
-    private FragmentManager manager = getFragmentManager();
+    private FragmentManager manager;
+    private MainMessagePresenter messagePresenter;
+    private MyLvAdapter adapter;
+    private List<ListMessageitem.MessageBean> messageBeanList = new ArrayList<>();
 
     public Fragmentinstantmessage(FragmentManager manager) {
         this.manager = manager;
@@ -62,15 +52,24 @@ public class Fragmentinstantmessage extends Fragment implements RefreshListView.
      */
     private int mold = 1;
 
+    /**
+     * 页码
+     */
+    private int curPage = 1;
+    /**
+     * 即时消息街type值为1
+     */
+    private int type = 1;
+
+
     @Nullable
     @Override
     public View onCreateView(LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
         super.onCreateView(inflater, container, savedInstanceState);
         View view = inflater.inflate(R.layout.fragment_instantmessage, container, false);
         unbinder = ButterKnife.bind(this, view);
-        mainRefreshlistview.setOnLoadMoreListener(this);
-        mainRefreshlistview.setOnRefreshListener(this);
         init();
+
         return view;
     }
 
@@ -83,40 +82,41 @@ public class Fragmentinstantmessage extends Fragment implements RefreshListView.
         mainRefreshlistview.addHeaderView(view1);
         mainRefreshlistview.setOnLoadMoreListener(this);
         mainRefreshlistview.setOnRefreshListener(this);
-        //接口new 轮播图实例
-        IBannerPresenter iBannerPresenter = new BannerPresenter();
-        iBannerPresenter.getImages(getActivity(), mainbanner, mold);
-        //newListView的实例
-        IListMessage iListMessage = new ListMessage();
-        iListMessage.getMessage(getActivity(), mainRefreshlistview, mold,manager);
+
+        messagePresenter = new MainMessagePresenter(mold, type, this);
+        messagePresenter.loadListMessage(curPage);
+        messagePresenter.loadBannerMessage(mainbanner);
+
     }
 
+    @Override
+    public void onPause() {
+        super.onPause();
+        Log.i(TAG, "onPause: " + "instant is onPause");
+    }
 
     @Override
     public void onDestroyView() {
         super.onDestroyView();
         unbinder.unbind();
+        Glide.get(getContext()).clearMemory();
+        curPage = 1;
+        Log.i(TAG, "onDestroyView: " + "instant is onDestroy");
+//        viewPager = null;
+//        Fragmentinstantmessage = null;
+
     }
 
 
     @Override
     public void onRefresh() {
-        new Thread(new Runnable() {
-            @Override
-            public void run() {
-                try {
-                    Thread.sleep(2000);
-                } catch (InterruptedException e) {
-                    e.printStackTrace();
-                }
-                mainRefreshlistview.closeRefresh();
-            }
-        }).start();
 
     }
 
     @Override
     public void onLoadMore() {
+        curPage++;
+        messagePresenter.loadListMessage(curPage);
         new Thread(new Runnable() {
             @Override
             public void run() {
@@ -128,6 +128,48 @@ public class Fragmentinstantmessage extends Fragment implements RefreshListView.
                 mainRefreshlistview.closeLoadMore();
             }
         }).start();
+    }
+
+    @Override
+    public void showList(final List<ListMessageitem.MessageBean> datas) {
+
+        messageBeanList.addAll(datas);
+        if (curPage == 1) {
+            getActivity().runOnUiThread(new Runnable() {
+                @Override
+                public void run() {
+                    adapter = new MyLvAdapter(getContext(), datas, manager);
+                    mainRefreshlistview.setAdapter(adapter);
+                    Log.i(TAG, "run: " + "数据跟新+messageBeanList.size=" + messageBeanList.size());
+
+                }
+            });
+        } else {
+            getActivity().runOnUiThread(new Runnable() {
+                @Override
+                public void run() {
+                    adapter = new MyLvAdapter(getContext(), datas, manager);
+                    adapter.notifyDataSetChanged();
+                    Log.i(TAG, "run: " + "数据跟新+messageBeanList.size=" + messageBeanList.size());
+                }
+            });
+
+        }
+
+    }
+
+    @Override
+    public void showBanner(final List<String> listImgs) {
+
+        getActivity().runOnUiThread(new Runnable() {
+            @Override
+            public void run() {
+                mainbanner.setImages(listImgs);
+                mainbanner.start();
+            }
+        });
+
+
     }
 
 }

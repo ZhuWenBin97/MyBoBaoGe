@@ -2,21 +2,24 @@ package com.zhuwb.moudle_main.view.indicator;
 
 import android.os.Bundle;
 import android.support.annotation.Nullable;
-import android.support.v4.app.Fragment;
 import android.support.v4.app.FragmentManager;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 
+import com.bumptech.glide.Glide;
 import com.guiying.module.common.base.LazyFragment;
 import com.youth.banner.Banner;
 import com.zcy.hnkjxy.customview.RefreshListView;
+import com.zhuwb.moudle_main.HttpUtils.HttpUtil;
 import com.zhuwb.moudle_main.R;
 import com.zhuwb.moudle_main.R2;
-import com.zhuwb.moudle_main.presenter.BannerPresenter;
-import com.zhuwb.moudle_main.presenter.IBannerPresenter;
-import com.zhuwb.moudle_main.presenter.IListMessage;
-import com.zhuwb.moudle_main.presenter.ListMessage;
+import com.zhuwb.moudle_main.adpter.MyLvAdapter;
+import com.zhuwb.moudle_main.bean.ListMessageitem;
+import com.zhuwb.moudle_main.contract.MessageContract;
+import com.zhuwb.moudle_main.presenter.MainMessagePresenter;
+
+import java.util.List;
 
 import butterknife.BindView;
 import butterknife.ButterKnife;
@@ -27,12 +30,14 @@ import butterknife.Unbinder;
  *         创建时间 :2017/11/13 10:46
  */
 
-public class Fragmentfood extends LazyFragment implements RefreshListView.OnLoadMoreListener, RefreshListView.OnRefreshListener {
+public class Fragmentfood extends LazyFragment implements RefreshListView.OnLoadMoreListener, RefreshListView.OnRefreshListener, MessageContract.IFragmentView {
     private Banner mainbanner;
     @BindView(R2.id.main_mold_food_refreshlistview)
     RefreshListView mainMoldFoodRefreshlistview;
     Unbinder unbinder;
-    private FragmentManager manager = getFragmentManager();
+    private FragmentManager manager;
+    private MainMessagePresenter messagePresenter;
+    private MyLvAdapter adapter;
 
     public Fragmentfood(FragmentManager manager) {
         this.manager = manager;
@@ -42,6 +47,14 @@ public class Fragmentfood extends LazyFragment implements RefreshListView.OnLoad
      * 美食街mold值为7
      */
     private int mold = 7;
+    /**
+     * 页码
+     */
+    private int curPage = 1;
+    /**
+     * 美食街type值为6
+     */
+    private int type = 6;
     //标志位，标致初始化已完成
     private boolean isPrepared;
 
@@ -62,18 +75,17 @@ public class Fragmentfood extends LazyFragment implements RefreshListView.OnLoad
         mainbanner = (Banner) view1.findViewById(R.id.main_lv_banner);
         mainMoldFoodRefreshlistview.addHeaderView(view1);
 
-        //接口new 轮播图实例
-        IBannerPresenter iBannerPresenter = new BannerPresenter();
-        iBannerPresenter.getImages(getActivity(), mainbanner, mold);
         //newListView的实例
-        IListMessage iListMessage = new ListMessage();
-        iListMessage.getMessage(getActivity(), mainMoldFoodRefreshlistview, mold, manager);
+        messagePresenter = new MainMessagePresenter(mold,  type, this);
+        messagePresenter.loadListMessage(curPage);
+        messagePresenter.loadBannerMessage(mainbanner);
     }
 
     @Override
     public void onDestroyView() {
         super.onDestroyView();
         unbinder.unbind();
+        Glide.get(getContext()).clearMemory();
     }
 
     @Override
@@ -98,5 +110,27 @@ public class Fragmentfood extends LazyFragment implements RefreshListView.OnLoad
     @Override
     public void onLoadMore() {
 
+    }
+
+    @Override
+    public void showList(List<ListMessageitem.MessageBean> messageBeans) {
+        adapter = new MyLvAdapter(getContext(), messageBeans, manager);
+        getActivity().runOnUiThread(new Runnable() {
+            @Override
+            public void run() {
+                mainMoldFoodRefreshlistview.setAdapter(adapter);
+            }
+        });
+    }
+
+    @Override
+    public void showBanner(final List<String> listImgs) {
+        getActivity().runOnUiThread(new Runnable() {
+            @Override
+            public void run() {
+                mainbanner.setImages(listImgs);
+                mainbanner.start();
+            }
+        });
     }
 }

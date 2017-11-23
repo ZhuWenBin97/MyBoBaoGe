@@ -4,12 +4,10 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:fitsSystemWindows="true"
     >
 
 
     <RelativeLayout
-        android:fitsSystemWindows="true"
         android:id="@+id/main_banner_layouttitle"
         android:layout_width="match_parent"
         android:layout_height="?actionBarSize"
@@ -22,7 +20,7 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_centerVertical="true"
-            android:layout_gravity="center_vertical"
+            android:gravity="bottom"
             android:orientation="horizontal"
             android:paddingLeft="10dp">
 
@@ -52,149 +50,156 @@
     <RelativeLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:background="#ffffff"
+        android:background="@color/ThemeColor"
         app:layout_constraintTop_toBottomOf="@id/main_banner_layouttitle">
 
-        <LinearLayout
-            android:id="@+id/p_type_ll"
+        <RelativeLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_marginLeft="20dp"
-            android:layout_marginTop="10dp"
             android:background="#ffffff"
-            android:gravity="center_vertical"
-            android:orientation="horizontal"
-
             >
 
-            <TextView
-                android:id="@+id/main_banner_item_typearea"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_marginRight="3dp"
-                android:background="@drawable/home_sqmessage_shape"
-                android:text="@string/main_lv_test_1"
-                android:textColor="@color/ThemeColor"
-                android:textSize="15sp"
-                android:textStyle="bold"/>
-
-
-            <TextView
-                android:id="@+id/main_banner_item_time"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_marginLeft="5dp"
-                android:text="@string/main_lv_test_3"
-                android:textColor="#949494"
-                android:textSize="10sp"
-                android:textStyle="normal"/>
-        </LinearLayout>
-
-        <RelativeLayout
-            android:id="@+id/main_banner_item_call"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_alignParentRight="true"
-            android:layout_below="@id/fengexian1"
-            android:layout_marginLeft="5dp"
-            android:layout_marginRight="20dp"
-            android:layout_marginTop="10dp"
-            android:descendantFocusability="blocksDescendants">
-
-            <ImageView
-                android:id="@+id/p_call_icon"
-                android:layout_width="28dp"
-                android:layout_height="28dp"
-                android:background="@mipmap/main_call_icon_blue"/>
-
-            <TextView
-                android:id="@+id/p_call_text"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_centerVertical="true"
-                android:layout_toRightOf="@id/p_call_icon"
-                android:text="@string/main_lv_test_4"
-                android:textSize="15sp"
-                android:textStyle="bold"/>
-        </RelativeLayout>
-
-        <TextView
-            android:id="@+id/home_item_done"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_alignParentRight="true"
-            android:layout_below="@id/fengexian1"
-            android:layout_marginLeft="5dp"
-            android:layout_marginRight="20dp"
-            android:layout_marginTop="20dp"
-            android:text="@string/main_lv_test_5"
-            android:textSize="15sp"
-            android:textStyle="bold"
-            android:visibility="gone"/>
-        <!-- shijian -->
-
-        <LinearLayout
-            android:id="@+id/h_ads_ll"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_below="@id/p_type_ll"
-            android:gravity="left"
-            android:orientation="horizontal">
-
-            <TextView
-                android:id="@+id/main_banner_item_address"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_marginLeft="20dp"
-                android:text="@string/main_lv_test_6"
-                android:textColor="#949494"
-                android:textSize="10sp"
-                android:textStyle="normal"/>
-        </LinearLayout>
-        <!-- 内容 -->
-
-        <LinearLayout
-            android:id="@+id/contentandpic"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_below="@id/h_ads_ll"
-            android:orientation="vertical">
-
             <LinearLayout
-                android:id="@+id/h_banner_content_ll"
+                android:id="@+id/p_type_ll"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
+                android:layout_marginLeft="20dp"
+                android:layout_marginTop="10dp"
                 android:background="#ffffff"
-                android:orientation="horizontal">
+                android:gravity="center_vertical"
+                android:orientation="horizontal"
 
-                <!-- 内容背景色 -->
+                >
 
                 <TextView
-                    android:id="@+id/main_banner_item_message"
+                    android:id="@+id/main_banner_item_typearea"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:layout_gravity="center"
-                    android:layout_marginBottom="10dp"
-                    android:layout_marginLeft="20dp"
-                    android:layout_marginRight="10dp"
-                    android:layout_marginTop="10dp"
-                    android:gravity="left"
-                    android:lineSpacingExtra="5dp"
-                    android:text="@string/main_lv_test_7"
-                    android:textScaleX="1"
+                    android:layout_marginRight="3dp"
+                    android:background="@drawable/home_sqmessage_shape"
+                    android:text="@string/main_lv_test_1"
+                    android:textColor="@color/ThemeColor"
                     android:textSize="15sp"
+                    android:textStyle="bold"/>
+
+
+                <TextView
+                    android:id="@+id/main_banner_item_time"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="5dp"
+                    android:text="@string/main_lv_test_3"
+                    android:textColor="#949494"
+                    android:textSize="10sp"
                     android:textStyle="normal"/>
             </LinearLayout>
 
-            <com.jaeger.ninegridimageview.NineGridImageView
-                android:id="@+id/main_banner_ninegridimageview"
+            <RelativeLayout
+                android:id="@+id/main_banner_item_call"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignParentRight="true"
+                android:layout_below="@id/fengexian1"
+                android:layout_marginLeft="5dp"
+                android:layout_marginRight="20dp"
+                android:layout_marginTop="10dp"
+                android:descendantFocusability="blocksDescendants">
+
+                <ImageView
+                    android:id="@+id/p_call_icon"
+                    android:layout_width="28dp"
+                    android:layout_height="28dp"
+                    android:background="@mipmap/main_call_icon_blue"/>
+
+                <TextView
+                    android:id="@+id/p_call_text"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_centerVertical="true"
+                    android:layout_toRightOf="@id/p_call_icon"
+                    android:text="@string/main_lv_test_4"
+                    android:textSize="15sp"
+                    android:textStyle="bold"/>
+            </RelativeLayout>
+
+            <TextView
+                android:id="@+id/home_item_done"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignParentRight="true"
+                android:layout_below="@id/fengexian1"
+                android:layout_marginLeft="5dp"
+                android:layout_marginRight="20dp"
+                android:layout_marginTop="20dp"
+                android:text="@string/main_lv_test_5"
+                android:textSize="15sp"
+                android:textStyle="bold"
+                android:visibility="gone"/>
+            <!-- shijian -->
+
+            <LinearLayout
+                android:id="@+id/h_ads_ll"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                app:imgGap="4dp"
-                app:maxSize="9"
-                app:singleImgSize="120dp"
-                />
+                android:layout_below="@id/p_type_ll"
+                android:gravity="left"
+                android:orientation="horizontal">
 
-        </LinearLayout>
+                <TextView
+                    android:id="@+id/main_banner_item_address"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="20dp"
+                    android:text="@string/main_lv_test_6"
+                    android:textColor="#949494"
+                    android:textSize="10sp"
+                    android:textStyle="normal"/>
+            </LinearLayout>
+            <!-- 内容 -->
+
+            <LinearLayout
+                android:id="@+id/contentandpic"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_below="@id/h_ads_ll"
+                android:orientation="vertical">
+
+                <LinearLayout
+                    android:id="@+id/h_banner_content_ll"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:background="#ffffff"
+                    android:orientation="horizontal">
+
+                    <!-- 内容背景色 -->
+
+                    <TextView
+                        android:id="@+id/main_banner_item_message"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_gravity="center"
+                        android:layout_marginBottom="10dp"
+                        android:layout_marginLeft="20dp"
+                        android:layout_marginRight="10dp"
+                        android:layout_marginTop="10dp"
+                        android:gravity="left"
+                        android:lineSpacingExtra="5dp"
+                        android:text="@string/main_lv_test_7"
+                        android:textScaleX="1"
+                        android:textSize="15sp"
+                        android:textStyle="normal"/>
+                </LinearLayout>
+
+                <com.jaeger.ninegridimageview.NineGridImageView
+                    android:id="@+id/main_banner_ninegridimageview"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    app:imgGap="4dp"
+                    app:maxSize="9"
+                    app:singleImgSize="120dp"
+                    />
+
+            </LinearLayout>
+        </RelativeLayout>
     </RelativeLayout>
 </android.support.constraint.ConstraintLayout>

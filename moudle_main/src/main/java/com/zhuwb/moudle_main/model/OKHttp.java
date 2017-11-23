@@ -9,7 +9,7 @@ import okhttp3.Request;
  *         创建时间 :2017/11/14 10:29
  */
 
-public class HttpUtils {
+public class OKHttp {
 
     public static void requestNetwork(String url, Callback callback) {
         OkHttpClient client = new OkHttpClient();

@@ -7,9 +7,11 @@ import android.util.Log;
 import android.widget.ImageView;
 
 import com.bumptech.glide.Glide;
+import com.bumptech.glide.load.engine.DiskCacheStrategy;
 import com.jaeger.ninegridimageview.NineGridImageView;
 import com.jaeger.ninegridimageview.NineGridImageViewAdapter;
 import com.zcy.hnkjxy.customview.ZoomPhotoView;
+import com.zhuwb.moudle_main.R;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -48,7 +50,10 @@ public class BannerParticularsPresenter implements IBannerParticularsPresenter {
 
         @Override
         protected void onDisplayImage(Context context, ImageView imageView, String s) {
-            Glide.with(context).load(s).into(imageView);
+            Glide.with(context).load(s).thumbnail(0.1f)
+                    .skipMemoryCache(true).diskCacheStrategy(DiskCacheStrategy.ALL)
+                    .placeholder(R.mipmap.main_pictures_no)
+                    .into(imageView);
             Log.i(TAG, "onDisplayImage: " + s);
         }
 
