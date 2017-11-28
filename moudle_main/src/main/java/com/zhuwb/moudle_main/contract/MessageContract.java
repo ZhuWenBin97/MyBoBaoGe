@@ -1,5 +1,7 @@
 package com.zhuwb.moudle_main.contract;
 
+import android.support.v4.app.FragmentActivity;
+
 import com.youth.banner.Banner;
 import com.zhuwb.moudle_main.bean.BannerMessage;
 import com.zhuwb.moudle_main.bean.ListMessageitem;
@@ -29,6 +31,7 @@ public class MessageContract {
          * @param listImgs
          */
         void showBanner(List<String> listImgs);
+
     }
 
 
@@ -48,6 +51,11 @@ public class MessageContract {
          * @param banner
          */
         void loadBannerMessage(Banner banner);
+
+        /**
+         *
+         */
+        void destory();
     }
 
 
@@ -61,7 +69,7 @@ public class MessageContract {
          *
          * @param url
          */
-        void requestNetwork(String url);
+        void requestNetwork(String url,FragmentActivity activity);
 
         /**
          * 数据监听

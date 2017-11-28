@@ -1,24 +1,30 @@
 package com.zhuwb.moudle_main.view.indicator;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.support.annotation.Nullable;
 import android.support.v4.app.Fragment;
 import android.support.v4.app.FragmentManager;
+import android.support.v7.widget.LinearLayoutManager;
+import android.support.v7.widget.RecyclerView;
 import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 
 import com.bumptech.glide.Glide;
+import com.chad.library.adapter.base.BaseQuickAdapter;
 import com.youth.banner.Banner;
-import com.zcy.hnkjxy.customview.RefreshListView;
 import com.zhuwb.moudle_main.R;
 import com.zhuwb.moudle_main.R2;
-import com.zhuwb.moudle_main.adpter.MyLvAdapter;
+import com.zhuwb.moudle_main.adpter.MyRVAdapter;
 import com.zhuwb.moudle_main.bean.ListMessageitem;
 import com.zhuwb.moudle_main.contract.MessageContract;
 import com.zhuwb.moudle_main.presenter.MainMessagePresenter;
+import com.zhuwb.moudle_main.view.BannerParticularsActivity;
+import com.zhuwb.moudle_main.view.ListParticularsActivity;
 
+import org.greenrobot.eventbus.EventBus;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -32,21 +38,17 @@ import butterknife.Unbinder;
  *         创建时间 :2017/11/13 10:46
  */
 
-public class Fragmentinstantmessage extends Fragment implements RefreshListView.OnLoadMoreListener, RefreshListView.OnRefreshListener, MessageContract.IFragmentView {
+public class Fragmentinstantmessage extends Fragment implements MessageContract.IFragmentView {
     private static final String TAG = "Fragment_instantmessage";
     private Banner mainbanner;
     private FragmentManager manager;
     private MainMessagePresenter messagePresenter;
-    private MyLvAdapter adapter;
+    private MyRVAdapter adapter;
     private List<ListMessageitem.MessageBean> messageBeanList = new ArrayList<>();
-
-    public Fragmentinstantmessage(FragmentManager manager) {
-        this.manager = manager;
-    }
 
     Unbinder unbinder;
     @BindView(R2.id.main_ins_refreshlistview)
-    RefreshListView mainRefreshlistview;
+    RecyclerView mainRefreshlistview;
     /**
      * 即时信息mold值为1
      */
@@ -62,6 +64,10 @@ public class Fragmentinstantmessage extends Fragment implements RefreshListView.
     private int type = 1;
 
 
+    public Fragmentinstantmessage(FragmentManager manager) {
+        this.manager = manager;
+    }
+
     @Nullable
     @Override
     public View onCreateView(LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
@@ -76,16 +82,66 @@ public class Fragmentinstantmessage extends Fragment implements RefreshListView.
 
     private void init() {
 
-        //把轮播图添加到ListView中
+//        //把轮播图添加到ListView中
         View view1 = LayoutInflater.from(getContext()).inflate(R.layout.main_banner, null);
         mainbanner = (Banner) view1.findViewById(R.id.main_lv_banner);
-        mainRefreshlistview.addHeaderView(view1);
-        mainRefreshlistview.setOnLoadMoreListener(this);
-        mainRefreshlistview.setOnRefreshListener(this);
 
-        messagePresenter = new MainMessagePresenter(mold, type, this);
+        //调取P层中加载列表数据和轮播图数据
+        messagePresenter = new MainMessagePresenter(mold, type, this,getActivity());
         messagePresenter.loadListMessage(curPage);
         messagePresenter.loadBannerMessage(mainbanner);
+
+        //设置recycleView
+        mainRefreshlistview.setLayoutManager(new LinearLayoutManager(getContext()));
+        adapter = new MyRVAdapter(R.layout.main_message_item, messageBeanList, manager);
+        adapter.addHeaderView(view1);
+        mainRefreshlistview.setAdapter(adapter);
+
+        /**
+         * 上拉加载
+         */
+        adapter.setOnLoadMoreListener(new BaseQuickAdapter.RequestLoadMoreListener() {
+            @Override
+            public void onLoadMoreRequested() {
+                mainRefreshlistview.postDelayed(new Runnable() {
+                    @Override
+                    public void run() {
+                        //当返回数据小于10，说明已无数据，停止下拉刷新
+                        if (messageBeanList.size() < 10) {
+                            adapter.loadMoreEnd();
+                        } else {
+                            curPage++;
+                            adapter.loadMoreComplete();
+                        }
+                        messagePresenter.loadListMessage(curPage);
+                    }
+                }, 2000);
+            }
+        }, mainRefreshlistview);
+
+        adapter.setOnItemClickListener(new BaseQuickAdapter.OnItemClickListener() {
+            @Override
+            public void onItemClick(BaseQuickAdapter adapter, View view, int position) {
+                EventBus.getDefault().postSticky(messageBeanList.get(position));
+                startActivity(new Intent(getActivity(), ListParticularsActivity.class));
+            }
+        });
+
+//        adapter.setUpFetchListener(new BaseQuickAdapter.UpFetchListener() {
+//            @Override
+//            public void onUpFetch() {
+//                adapter.setUpFetchEnable(true);
+//                mainRefreshlistview.postDelayed(new Runnable() {
+//                    @Override
+//                    public void run() {
+//                        curPage = 1;
+//                        messageBeanList.clear();
+//                        messagePresenter.loadListMessage(curPage);
+//                    }
+//                }, 300);
+//
+//            }
+//        });
 
     }
 
@@ -101,61 +157,25 @@ public class Fragmentinstantmessage extends Fragment implements RefreshListView.
         unbinder.unbind();
         Glide.get(getContext()).clearMemory();
         curPage = 1;
-        Log.i(TAG, "onDestroyView: " + "instant is onDestroy");
-//        viewPager = null;
-//        Fragmentinstantmessage = null;
+        messageBeanList.clear();
+        messagePresenter.destory();
+        messagePresenter = null;
 
+        Log.i(TAG, "onDestroyView: " + "messageBeanList的大小" + messageBeanList.size());
     }
 
-
-    @Override
-    public void onRefresh() {
-
-    }
-
-    @Override
-    public void onLoadMore() {
-        curPage++;
-        messagePresenter.loadListMessage(curPage);
-        new Thread(new Runnable() {
-            @Override
-            public void run() {
-                try {
-                    Thread.sleep(2000);
-                } catch (InterruptedException e) {
-                    e.printStackTrace();
-                }
-                mainRefreshlistview.closeLoadMore();
-            }
-        }).start();
-    }
 
     @Override
     public void showList(final List<ListMessageitem.MessageBean> datas) {
-
         messageBeanList.addAll(datas);
-        if (curPage == 1) {
-            getActivity().runOnUiThread(new Runnable() {
-                @Override
-                public void run() {
-                    adapter = new MyLvAdapter(getContext(), datas, manager);
-                    mainRefreshlistview.setAdapter(adapter);
-                    Log.i(TAG, "run: " + "数据跟新+messageBeanList.size=" + messageBeanList.size());
-
-                }
-            });
-        } else {
-            getActivity().runOnUiThread(new Runnable() {
-                @Override
-                public void run() {
-                    adapter = new MyLvAdapter(getContext(), datas, manager);
+        getActivity().runOnUiThread(new Runnable() {
+            @Override
+            public void run() {
+                if (curPage != 1) {
                     adapter.notifyDataSetChanged();
-                    Log.i(TAG, "run: " + "数据跟新+messageBeanList.size=" + messageBeanList.size());
                 }
-            });
-
-        }
-
+            }
+        });
     }
 
     @Override

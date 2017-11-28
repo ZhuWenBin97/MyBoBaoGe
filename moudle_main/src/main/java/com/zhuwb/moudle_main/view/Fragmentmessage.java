@@ -40,7 +40,9 @@ public class Fragmentmessage extends LazyFragment {
     ViewPager mainFragmentViewPager;
 
     private FragmentManager manager;
-    // 标志位，标志已经初始化完成。
+    /**
+     * 标志位，标志已经初始化完成
+     */
     private boolean isPrepared;
 
 

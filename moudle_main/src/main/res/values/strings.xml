@@ -21,4 +21,7 @@
     <string name="mian_test_001">通知：播报哥3.5正式上线，感谢您对播报哥的关注和支持！</string>
     <string name="main_back">返回</string>
     <string name="main_banner_xiangqing">详情</string>
+    <string name="main_list_pinglun">评论</string>
+    <string name="main_list_pinglun_hint">回复 楼主：</string>
+    <string name="mian_lv_pinglun_button">发送</string>
 </resources>

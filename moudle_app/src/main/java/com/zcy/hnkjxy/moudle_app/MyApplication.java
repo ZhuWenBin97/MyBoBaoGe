@@ -1,10 +1,13 @@
 package com.zcy.hnkjxy.moudle_app;
 
+import android.app.Application;
 import android.content.Context;
 
 import com.alibaba.android.arouter.launcher.ARouter;
 import com.guiying.module.common.base.BaseApplication;
 import com.guiying.module.common.utils.Utils;
+import com.squareup.leakcanary.LeakCanary;
+import com.squareup.leakcanary.RefWatcher;
 
 import org.acra.ACRA;
 import org.acra.ReportField;
@@ -34,6 +37,9 @@ import org.acra.sender.ReportSenderException;
         resDialogText = R.string.res_dialog_text,
         resDialogTitle = R.string.res_dialog_title)
 public class MyApplication extends BaseApplication {
+    private RefWatcher refWatcher;
+
+
     @Override
     public void onCreate() {
         super.onCreate();
@@ -45,6 +51,12 @@ public class MyApplication extends BaseApplication {
         ARouter.init(this);
         //崩溃日志记录初始化
         ACRA.init(this);
+        LeakCanary.install(this);
+    }
+
+    public static RefWatcher getRefWatcher(Context context) {
+        MyApplication application = (MyApplication) context.getApplicationContext();
+        return application.refWatcher;
     }
 
     /**

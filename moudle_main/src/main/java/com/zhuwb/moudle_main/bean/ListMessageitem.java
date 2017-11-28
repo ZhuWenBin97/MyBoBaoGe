@@ -38,9 +38,9 @@ public class ListMessageitem {
          * msg_type_name : 承接横机加工
          * message_id : 584362
          * message_type : 15
-         * message_user_id : 74
          * message_zone_id : 2
          * message_images :
+         * message_user_id : 74
          * message_verify_date : 2017-11-16 14:51:42
          * message_content : 我有 十台357 电脑横机空闲， ，有需要的请点击马上拨打，电话联系我！
          * message_phone : 18368395085

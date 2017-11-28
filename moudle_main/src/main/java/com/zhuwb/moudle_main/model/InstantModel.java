@@ -1,7 +1,9 @@
-package com.zhuwb.moudle_main.HttpUtils;
+package com.zhuwb.moudle_main.model;
+
+import android.support.v4.app.FragmentActivity;
 
 import com.zhuwb.moudle_main.contract.MessageContract;
-import com.zhuwb.moudle_main.model.OKHttp;
+import com.zhuwb.moudle_main.HttpUtils.OKHttp;
 
 import java.io.IOException;
 
@@ -23,7 +25,7 @@ public class InstantModel implements MessageContract.IFragmentModel {
     }
 
     @Override
-    public void requestNetwork(String url) {
+    public void requestNetwork(String url, FragmentActivity activity) {
         OKHttp.requestNetwork(url, new Callback() {
             @Override
             public void onFailure(Call call, IOException e) {
@@ -36,7 +38,8 @@ public class InstantModel implements MessageContract.IFragmentModel {
                 String json = response.body().string();
                 loadListener.onSucced(json);
             }
-        });
+        },activity);
 
     }
+
 }

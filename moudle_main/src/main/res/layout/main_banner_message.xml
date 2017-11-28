@@ -10,7 +10,7 @@
     <RelativeLayout
         android:id="@+id/main_banner_layouttitle"
         android:layout_width="match_parent"
-        android:layout_height="?actionBarSize"
+        android:layout_height="56dp"
         android:background="@color/ThemeColor"
         app:layout_constraintTop_toTopOf="parent"
         >

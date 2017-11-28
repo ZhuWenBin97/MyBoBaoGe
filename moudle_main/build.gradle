@@ -50,6 +50,7 @@ dependencies {
 //    androidTestImplementation 'com.android.support.test:runner:1.0.1'
 //    androidTestImplementation 'com.android.support.test.espresso:espresso-core:3.0.1'
 //    implementation 'com.android.support:support-v4:25.4.0'
+    implementation 'com.android.support.constraint:constraint-layout:1.0.2'
     annotationProcessor "com.alibaba:arouter-compiler:$rootProject.annotationProcessor"
     compile project(':lib_common')
     compile project(':lib_uikit')
@@ -57,6 +58,7 @@ dependencies {
     compile 'com.jaeger.ninegridimageview:library:1.0.2'
     //黄油刀
     compile 'com.jakewharton:butterknife:8.4.0'
+    compile 'com.github.CymChad:BaseRecyclerViewAdapterHelper:2.9.30'
 
     annotationProcessor 'com.jakewharton:butterknife-compiler:8.4.0'
 }

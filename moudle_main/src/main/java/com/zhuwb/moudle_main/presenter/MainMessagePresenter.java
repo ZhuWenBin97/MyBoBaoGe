@@ -1,18 +1,12 @@
 package com.zhuwb.moudle_main.presenter;
 
 import android.content.Context;
-import android.graphics.Bitmap;
-import android.support.v4.app.Fragment;
 import android.support.v4.app.FragmentActivity;
-import android.support.v4.app.FragmentManager;
 import android.util.Log;
 import android.widget.ImageView;
 
 import com.bumptech.glide.Glide;
 import com.bumptech.glide.load.engine.DiskCacheStrategy;
-import com.bumptech.glide.load.resource.drawable.GlideDrawable;
-import com.bumptech.glide.request.animation.GlideAnimation;
-import com.bumptech.glide.request.target.SimpleTarget;
 import com.google.gson.Gson;
 import com.youth.banner.Banner;
 import com.youth.banner.BannerConfig;
@@ -20,7 +14,8 @@ import com.youth.banner.Transformer;
 import com.youth.banner.listener.OnBannerListener;
 import com.youth.banner.loader.ImageLoader;
 import com.zhuwb.moudle_main.HttpUtils.HttpUtil;
-import com.zhuwb.moudle_main.HttpUtils.InstantModel;
+import com.zhuwb.moudle_main.HttpUtils.OkHttpUtil;
+import com.zhuwb.moudle_main.model.InstantModel;
 import com.zhuwb.moudle_main.R;
 import com.zhuwb.moudle_main.bean.BannerMessage;
 import com.zhuwb.moudle_main.bean.ListMessageitem;
@@ -31,6 +26,8 @@ import org.greenrobot.eventbus.EventBus;
 import java.util.ArrayList;
 import java.util.List;
 
+import okhttp3.Request;
+
 /**
  * @author ZhuWB
  *         创建时间 :2017/11/21 10:49
@@ -39,17 +36,19 @@ import java.util.List;
 public class MainMessagePresenter implements MessageContract.IFragmentModel.OnLoadListener, MessageContract.IFragmentPresenter {
     private static final String TAG = "MainMessagePresenter";
     private InstantModel instantModel;
+    private FragmentActivity activity;
     private MessageContract.IFragmentView iFragmentView;
     private List<BannerMessage.BannerBean> messageBeanBanner;
     private int mold;
     private int curPage;
     private int type;
 
-    public MainMessagePresenter(Integer mold, Integer type, MessageContract.IFragmentView iFragmentView) {
+    public MainMessagePresenter(Integer mold, Integer type, MessageContract.IFragmentView iFragmentView, FragmentActivity activity) {
         instantModel = new InstantModel(this);
         this.mold = mold;
         this.type = type;
         this.iFragmentView = iFragmentView;
+        this.activity = activity;
     }
 
     @Override
@@ -91,13 +90,13 @@ public class MainMessagePresenter implements MessageContract.IFragmentModel.OnLo
 
     @Override
     public void loadListMessage(Integer curPage) {
-        instantModel.requestNetwork(HttpUtil.getListUrl(mold, curPage, type));
+        instantModel.requestNetwork(HttpUtil.getListUrl(mold, curPage, type), activity);
 
     }
 
     @Override
     public void loadBannerMessage(Banner banner) {
-        instantModel.requestNetwork(HttpUtil.getBannerUrl(mold));
+        instantModel.requestNetwork(HttpUtil.getBannerUrl(mold), activity);
         //设置banner样式
         banner.setBannerStyle(BannerConfig.CIRCLE_INDICATOR);
         //设置图片加载器
@@ -120,6 +119,15 @@ public class MainMessagePresenter implements MessageContract.IFragmentModel.OnLo
             }
         });
 
+    }
+
+    @Override
+    public void destory() {
+        iFragmentView = null;
+        if (instantModel != null) {
+            OkHttpUtil.getInstance().cancelTag(activity);
+        }
+        instantModel = null;
     }
 
 
