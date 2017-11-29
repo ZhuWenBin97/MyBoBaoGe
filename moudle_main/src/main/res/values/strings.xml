@@ -24,4 +24,9 @@
     <string name="main_list_pinglun">评论</string>
     <string name="main_list_pinglun_hint">回复 楼主：</string>
     <string name="mian_lv_pinglun_button">发送</string>
+    <string name="main_fragment_release">发布</string>
+    <string name="main_release_area">商圈:</string>
+    <string name="main_release_leimu">标题:</string>
+    <string name="main_release_EditHint">请将文字控制在90个之内</string>
+    <string name="main_release_message">消息内容:</string>
 </resources>

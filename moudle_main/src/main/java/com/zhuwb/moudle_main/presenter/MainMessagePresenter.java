@@ -22,6 +22,9 @@ import com.zhuwb.moudle_main.bean.ListMessageitem;
 import com.zhuwb.moudle_main.contract.MessageContract;
 
 import org.greenrobot.eventbus.EventBus;
+import org.json.JSONArray;
+import org.json.JSONException;
+import org.json.JSONObject;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -59,33 +62,41 @@ public class MainMessagePresenter implements MessageContract.IFragmentModel.OnLo
 
     @Override
     public void onSucced(String json) {
-        Gson gson = new Gson();
         try {
-            BannerMessage messages = gson.fromJson(json, BannerMessage.class);
-            List<BannerMessage.BannerBean> messageBeans = messages.getMessage();
+            JSONObject jsonObject = new JSONObject(json);
+            if ("1".equals(jsonObject.getString("code"))) {
+                Gson gson = new Gson();
+                try {
+                    BannerMessage messages = gson.fromJson(json, BannerMessage.class);
+                    List<BannerMessage.BannerBean> messageBeans = messages.getMessage();
 
-            List<String> listImage = new ArrayList<>();
-            //取轮播图首页图片
-            for (int i = 0; i < messageBeans.size(); i++) {
-                BannerMessage.BannerBean message = (BannerMessage.BannerBean) messageBeans.get(i);
-                //去掉资源中多余的字符
-                String[] str = message.getMessage_master().split("787311295");
-                listImage.add(str[0]);
-            }
-            this.messageBeanBanner = messageBeans;
-            iFragmentView.showBanner(listImage);
-
-        } catch (Exception e) {
-            Log.i(TAG, "onSucced: " + "Exception");
-            ListMessageitem message = gson.fromJson(json, ListMessageitem.class);
-            List<ListMessageitem.MessageBean> messageBeans = new ArrayList<>();
-            for (ListMessageitem.MessageBean messageBean : message.getMessage()) {
-                if (messageBean != null) {
-                    messageBeans.add(messageBean);
+                    List<String> listImage = new ArrayList<>();
+                    //取轮播图首页图片
+                    for (int i = 0; i < messageBeans.size(); i++) {
+                        BannerMessage.BannerBean message = (BannerMessage.BannerBean) messageBeans.get(i);
+                        //去掉资源中多余的字符
+                        String[] str = message.getMessage_master().split("787311295");
+                        listImage.add(str[0]);
+                    }
+                    this.messageBeanBanner = messageBeans;
+                    iFragmentView.showBanner(listImage);
+                } catch (Exception e) {
+                    Log.i(TAG, "onSucced: " + "Exception");
+                    ListMessageitem message = gson.fromJson(json, ListMessageitem.class);
+                    List<ListMessageitem.MessageBean> messageBeans = new ArrayList<>();
+                    for (ListMessageitem.MessageBean messageBean : message.getMessage()) {
+                        if (messageBean != null) {
+                            messageBeans.add(messageBean);
+                        }
+                    }
+                    iFragmentView.showList(messageBeans);
                 }
             }
-            iFragmentView.showList(messageBeans);
+        } catch (JSONException e) {
+            e.printStackTrace();
         }
+
+
     }
 
     @Override

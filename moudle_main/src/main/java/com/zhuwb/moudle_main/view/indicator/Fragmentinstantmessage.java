@@ -111,9 +111,9 @@ public class Fragmentinstantmessage extends Fragment implements MessageContract.
                             adapter.loadMoreEnd();
                         } else {
                             curPage++;
+                            messagePresenter.loadListMessage(curPage);
                             adapter.loadMoreComplete();
                         }
-                        messagePresenter.loadListMessage(curPage);
                     }
                 }, 2000);
             }

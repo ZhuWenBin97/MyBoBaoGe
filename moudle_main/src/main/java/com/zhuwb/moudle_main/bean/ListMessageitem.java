@@ -9,9 +9,10 @@ import java.util.List;
 
 public class ListMessageitem {
 
+
     /**
      * code : 1
-     * message : [{"msg_type_name":"承接横机加工","message_id":"584362","message_type":"15","message_user_id":"74","message_zone_id":"2","message_images":"","message_verify_date":"2017-11-16 14:51:42","message_content":"我有 十台357 电脑横机空闲， ，有需要的请点击马上拨打，电话联系我！","message_phone":"18368395085","message_ads":"中国浙江省嘉兴市秀洲区","message_date":"2017-11-16 14:39:31","message_reason":null,"message_state":"1","message_hongbao_state":"1","brow_user_cont":"4769","laud_user_cont":0,"msg_comment_cont":0,"isLaud":"0"},{"msg_type_name":"承接横机加工","message_id":"584363","message_type":"15","message_user_id":"26250","message_zone_id":"2","message_images":"","message_verify_date":"2017-11-16 14:51:41","message_content":"我有 7针12！！！高速机 电脑横机空闲， ，有需要的请点击马上拨打，电话联系我！","message_phone":"18857337513","message_ads":"中国浙江省嘉兴市秀洲区","message_date":"2017-11-16 14:39:55","message_reason":null,"message_state":"1","message_hongbao_state":"1","brow_user_cont":"4709","laud_user_cont":0,"msg_comment_cont":0,"isLaud":"0"},{"msg_type_name":"承接横机加工","message_id":"584364","message_type":"15","message_user_id":"18621","message_zone_id":"2","message_images":"","message_verify_date":"2017-11-16 14:51:40","message_content":"我有 多台7针 电脑横机空闲， ，有需要的请点击马上拨打，电话联系我！","message_phone":"13656619691","message_ads":"中国浙江省嘉兴市秀洲区","message_date":"2017-11-16 14:40:24","message_reason":null,"message_state":"1","message_hongbao_state":"1","brow_user_cont":"4709","laud_user_cont":0,"msg_comment_cont":0,"isLaud":"0"},{"msg_type_name":"承接横机加工","message_id":"584365","message_type":"15","message_user_id":"5435","message_zone_id":"2","message_images":"","message_verify_date":"2017-11-16 14:51:38","message_content":"我有 5～8台12针双系统 电脑横机空闲， 自家看管，质量有保证，泰石小区 ，有需要的请点击马上拨打，电话联系我！","message_phone":"13736494852","message_ads":"中国浙江省嘉兴市秀洲区","message_date":"2017-11-16 14:40:55","message_reason":null,"message_state":"1","message_hongbao_state":"1","brow_user_cont":"4725","laud_user_cont":0,"msg_comment_cont":0,"isLaud":"0"},{"msg_type_name":"招套口","message_id":"584366","message_type":"12","message_user_id":"2954","message_zone_id":"2","message_images":"","message_verify_date":"2017-11-16 14:51:37","message_content":"外发套口，招8 针套口，有空的请点击马上拨打，电话联系我！","message_phone":"15957314266","message_ads":"中国浙江省嘉兴市秀洲区洪民路138号","message_date":"2017-11-16 14:41:54","message_reason":null,"message_state":"1","message_hongbao_state":"1","brow_user_cont":"4702","laud_user_cont":0,"msg_comment_cont":0,"isLaud":"0"},{"msg_type_name":"承接横机加工","message_id":"584367","message_type":"15","message_user_id":"18621","message_zone_id":"2","message_images":"","message_verify_date":"2017-11-16 14:51:36","message_content":"我有 4台七针 电脑横机空闲， ，有需要的请点击马上拨打，电话联系我！","message_phone":"13656619691","message_ads":"中国浙江省嘉兴市秀洲区","message_date":"2017-11-16 14:42:02","message_reason":null,"message_state":"1","message_hongbao_state":"1","brow_user_cont":"4709","laud_user_cont":0,"msg_comment_cont":0,"isLaud":"0"},{"msg_type_name":"承接横机加工","message_id":"584368","message_type":"15","message_user_id":"37496","message_zone_id":"2","message_images":"","message_verify_date":"2017-11-16 14:51:35","message_content":"我有 8台12针双系统 电脑横机空闲， 自家看管，保质保量，可长期合作，泰石小区 ，有需要的请点击马上拨打，电话联系我！","message_phone":"13017761987","message_ads":"中国浙江省嘉兴市秀洲区","message_date":"2017-11-16 14:42:06","message_reason":null,"message_state":"1","message_hongbao_state":"1","brow_user_cont":"4725","laud_user_cont":0,"msg_comment_cont":0,"isLaud":"0"},{"msg_type_name":"转让其他","message_id":"584370","message_type":"18","message_user_id":"7003","message_zone_id":"2","message_images":"","message_verify_date":"2017-11-16 14:51:29","message_content":"我有11年正七针 八台要转让，有需要的请点击马上拨打，直接电话联系我！因为改行想整厂转让 倒毛机三轮空调什么的都有 拎包入住 废铁价","message_phone":"13067667732","message_ads":"中国浙江省嘉兴市秀洲区洪新大道","message_date":"2017-11-16 14:44:21","message_reason":null,"message_state":"1","message_hongbao_state":"1","brow_user_cont":"4702","laud_user_cont":0,"msg_comment_cont":0,"isLaud":"0"},{"msg_type_name":"招横机","message_id":"584371","message_type":"11","message_user_id":"4261","message_zone_id":"2","message_images":"","message_verify_date":"2017-11-16 14:51:25","message_content":"我要招 12 针电脑横机， 岛精机 ，有空的请点击马上拨打，电话联系我！要求保质保量。国产机不用。","message_phone":"13857390200","message_ads":"中国浙江省嘉兴市秀洲区X301(王建公路)","message_date":"2017-11-16 14:44:49","message_reason":null,"message_state":"1","message_hongbao_state":"1","brow_user_cont":"4709","laud_user_cont":0,"msg_comment_cont":0,"isLaud":"0"},{"msg_type_name":"招套口","message_id":"584372","message_type":"12","message_user_id":"41956","message_zone_id":"3","message_images":"","message_verify_date":"2017-11-16 14:51:24","message_content":"外发套口，招 针套口，有空的请点击马上拨打，电话联系我！","message_phone":"17051065771","message_ads":"中国浙江省嘉兴市桐乡市振兴东路377","message_date":"2017-11-16 14:45:30","message_reason":null,"message_state":"4","message_hongbao_state":"1","brow_user_cont":"4702","laud_user_cont":0,"msg_comment_cont":0,"isLaud":"0"}]
+     * message : [{"msg_type_name":"承接横机加工","message_id":"591099","message_type":"15","message_user_id":"2592","message_zone_id":"2","message_images":"","message_verify_date":"2017-11-21 09:55:04","message_content":"我有7针高速 电脑横机空闲， ，有需要的请点击马上拨打，电话联系我！仁和小区","message_phone":"13758096949","message_ads":"中国浙江省嘉兴市秀洲区嘉洪大道1495#号","message_date":"2017-11-21 09:44:00","message_reason":null,"message_state":"1","message_hongbao_state":"1","brow_user_cont":"164098","laud_user_cont":"1","msg_comment_cont":"1","isLaud":"0"},{"msg_type_name":"承接横机加工","message_id":"591100","message_type":"15","message_user_id":"5284","message_zone_id":"2","message_images":"","message_verify_date":"2017-11-21 09:55:00","message_content":"7针横机空闲 本地人 自己看机器 需要请联系","message_phone":"15824346500","message_ads":"洪合镇","message_date":"2017-11-21 09:44:17","message_reason":null,"message_state":"1","message_hongbao_state":"1","brow_user_cont":"164053","laud_user_cont":"1","msg_comment_cont":0,"isLaud":"0"},{"msg_type_name":"招套口","message_id":"591108","message_type":"12","message_user_id":"20333","message_zone_id":"3","message_images":"","message_verify_date":"2017-11-21 09:54:44","message_content":"外发套口，招 16 针套口，有空的请点击马上拨打，电话联系我！","message_phone":"15968369941","message_ads":"中国浙江省嘉兴市桐乡市G320(旧)","message_date":"2017-11-21 09:47:58","message_reason":null,"message_state":"1","message_hongbao_state":"1","brow_user_cont":"164489","laud_user_cont":"1","msg_comment_cont":0,"isLaud":"0"},{"msg_type_name":"承接横机加工","message_id":"591126","message_type":"15","message_user_id":"34688","message_zone_id":"2","message_images":"","message_verify_date":"2017-11-21 09:54:38","message_content":"我有 357电脑横机空闲， ，有需要的请点击马上拨打，电话联系我！","message_phone":"18069678709","message_ads":"中国浙江省嘉兴市秀洲区寺浜路","message_date":"2017-11-21 09:53:54","message_reason":null,"message_state":"1","message_hongbao_state":"1","brow_user_cont":"164020","laud_user_cont":0,"msg_comment_cont":0,"isLaud":"0"},{"msg_type_name":"承接平车加工","message_id":"591127","message_type":"20","message_user_id":"25653","message_zone_id":"2","message_images":"","message_verify_date":"2017-11-21 09:54:35","message_content":"专业承接平车加工，可踩花边，订商标，拷边，贴口袋，上衬衫领子，等等，有外发平车加工的各位老板、老板娘请点击马上拨打，直接电话联系我！有六个专业大厂出来的工人.北市场旁有活请来电","message_phone":"18768560621","message_ads":"中国浙江省嘉兴市秀洲区洪运路60号","message_date":"2017-11-21 09:54:06","message_reason":null,"message_state":"1","message_hongbao_state":"1","brow_user_cont":"164020","laud_user_cont":0,"msg_comment_cont":0,"isLaud":"0"},{"msg_type_name":"承接横机加工","message_id":"591110","message_type":"15","message_user_id":"27529","message_zone_id":"2","message_images":"","message_verify_date":"2017-11-21 09:54:20","message_content":"我有357针电脑横机马上空闲自家人看机有需要的请联系我","message_phone":"18268416818","message_ads":"中国浙江省嘉兴市秀洲区","message_date":"2017-11-21 09:48:41","message_reason":null,"message_state":"1","message_hongbao_state":"1","brow_user_cont":"163505","laud_user_cont":0,"msg_comment_cont":0,"isLaud":"0"},{"msg_type_name":"承接横机加工","message_id":"591111","message_type":"15","message_user_id":"19824","message_zone_id":"2","message_images":"","message_verify_date":"2017-11-21 09:54:15","message_content":"我有 7针 电脑横机空闲， ，有需要的请点击马上拨打，电话联系我！","message_phone":"15967334733","message_ads":"中国浙江省嘉兴市秀洲区国贸路","message_date":"2017-11-21 09:48:45","message_reason":null,"message_state":"1","message_hongbao_state":"1","brow_user_cont":"163429","laud_user_cont":0,"msg_comment_cont":0,"isLaud":"0"},{"msg_type_name":"承接横机加工","message_id":"591123","message_type":"15","message_user_id":"2190","message_zone_id":"2","message_images":"http://bobaoge.oss-cn-shanghai.aliyuncs.com/bobaoge20171121/20171121095337756_115.png787311295","message_verify_date":"2017-11-21 09:54:12","message_content":"我有8台12针双系统 电脑横机空闲， ，有需要的请点击马上拨打，电话联系我！","message_phone":"13758060669","message_ads":"中国浙江省嘉兴市秀洲区","message_date":"2017-11-21 09:53:35","message_reason":null,"message_state":"1","message_hongbao_state":"1","brow_user_cont":"163132","laud_user_cont":0,"msg_comment_cont":0,"isLaud":"0"},{"msg_type_name":"求购","message_id":"591102","message_type":"44","message_user_id":"35030","message_zone_id":"2","message_images":"http://bobaoge.oss-cn-shanghai.aliyuncs.com/bobaoge20171121/20171121094550183_115.png787311295http://bobaoge.oss-cn-shanghai.aliyuncs.com/bobaoge20171121/20171121094550926_115.png787311295http://bobaoge.oss-cn-shanghai.aliyuncs.com/bobaoge20171121/20171121094551326_115.png787311295http://bobaoge.oss-cn-shanghai.aliyuncs.com/bobaoge20171121/20171121094552359_115.png787311295http://bobaoge.oss-cn-shanghai.aliyuncs.com/bobaoge20171121/20171121094552378_115.png787311295","message_verify_date":"2017-11-21 09:53:50","message_content":"我要求购 ，有此类商品的商家或朋友请点击马上拨打，直接电话联系我！","message_phone":"18578775186","message_ads":"中国浙江省嘉兴市秀洲区富民路463号","message_date":"2017-11-21 09:45:47","message_reason":null,"message_state":"1","message_hongbao_state":"1","brow_user_cont":"140532","laud_user_cont":"1","msg_comment_cont":0,"isLaud":"0"},{"msg_type_name":"承接绣花加工","message_id":"591103","message_type":"19","message_user_id":"43333","message_zone_id":"2","message_images":"","message_verify_date":"2017-11-21 09:53:38","message_content":"专业承接电脑绣花加工，有外发绣花加工的毛衣厂、门店老板、老板娘请点击马上拨打，直接电话联系我！","message_phone":"18357304067","message_ads":"中国浙江省嘉兴市秀洲区","message_date":"2017-11-21 09:46:03","message_reason":null,"message_state":"1","message_hongbao_state":"1","brow_user_cont":"139142","laud_user_cont":0,"msg_comment_cont":0,"isLaud":"0"}]
      */
 
     private int code;
@@ -36,22 +37,22 @@ public class ListMessageitem {
     public static class MessageBean {
         /**
          * msg_type_name : 承接横机加工
-         * message_id : 584362
+         * message_id : 591099
          * message_type : 15
+         * message_user_id : 2592
          * message_zone_id : 2
          * message_images :
-         * message_user_id : 74
-         * message_verify_date : 2017-11-16 14:51:42
-         * message_content : 我有 十台357 电脑横机空闲， ，有需要的请点击马上拨打，电话联系我！
-         * message_phone : 18368395085
-         * message_ads : 中国浙江省嘉兴市秀洲区
-         * message_date : 2017-11-16 14:39:31
+         * message_verify_date : 2017-11-21 09:55:04
+         * message_content : 我有7针高速 电脑横机空闲， ，有需要的请点击马上拨打，电话联系我！仁和小区
+         * message_phone : 13758096949
+         * message_ads : 中国浙江省嘉兴市秀洲区嘉洪大道1495#号
+         * message_date : 2017-11-21 09:44:00
          * message_reason : null
          * message_state : 1
          * message_hongbao_state : 1
-         * brow_user_cont : 4769
-         * laud_user_cont : 0
-         * msg_comment_cont : 0
+         * brow_user_cont : 164098
+         * laud_user_cont : 1
+         * msg_comment_cont : 1
          * isLaud : 0
          */
 
@@ -70,8 +71,8 @@ public class ListMessageitem {
         private String message_state;
         private String message_hongbao_state;
         private String brow_user_cont;
-        private int laud_user_cont;
-        private int msg_comment_cont;
+        private String laud_user_cont;
+        private String msg_comment_cont;
         private String isLaud;
 
         public String getMsg_type_name() {
@@ -194,19 +195,19 @@ public class ListMessageitem {
             this.brow_user_cont = brow_user_cont;
         }
 
-        public int getLaud_user_cont() {
+        public String getLaud_user_cont() {
             return laud_user_cont;
         }
 
-        public void setLaud_user_cont(int laud_user_cont) {
+        public void setLaud_user_cont(String laud_user_cont) {
             this.laud_user_cont = laud_user_cont;
         }
 
-        public int getMsg_comment_cont() {
+        public String getMsg_comment_cont() {
             return msg_comment_cont;
         }
 
-        public void setMsg_comment_cont(int msg_comment_cont) {
+        public void setMsg_comment_cont(String msg_comment_cont) {
             this.msg_comment_cont = msg_comment_cont;
         }
 

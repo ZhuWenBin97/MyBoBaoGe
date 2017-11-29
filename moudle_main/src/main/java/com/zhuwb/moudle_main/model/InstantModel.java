@@ -1,6 +1,7 @@
 package com.zhuwb.moudle_main.model;
 
 import android.support.v4.app.FragmentActivity;
+import android.util.Log;
 
 import com.zhuwb.moudle_main.contract.MessageContract;
 import com.zhuwb.moudle_main.HttpUtils.OKHttp;
@@ -17,6 +18,7 @@ import okhttp3.Response;
  */
 
 public class InstantModel implements MessageContract.IFragmentModel {
+    private static final String TAG = "InstantModel";
     public OnLoadListener loadListener;
 
 
@@ -38,7 +40,8 @@ public class InstantModel implements MessageContract.IFragmentModel {
                 String json = response.body().string();
                 loadListener.onSucced(json);
             }
-        },activity);
+
+        }, activity);
 
     }
 

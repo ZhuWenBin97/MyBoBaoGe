@@ -7,9 +7,10 @@
 
     <SearchView
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
+        android:layout_height="?actionBarSize"
         android:background="@color/ThemeColor"
         android:iconifiedByDefault="false"
+        android:gravity="center_vertical"
         android:queryHint="@string/main_message_searchviewhint"
         />
 

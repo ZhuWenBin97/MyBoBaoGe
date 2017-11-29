@@ -110,9 +110,9 @@ public class Fragmentmoldbaby extends LazyFragment implements MessageContract.IF
                             adapter.loadMoreEnd();
                         } else {
                             curPage++;
+                            messagePresenter.loadListMessage(curPage);
                             adapter.loadMoreComplete();
                         }
-                        messagePresenter.loadListMessage(curPage);
                     }
                 }, 2000);
             }

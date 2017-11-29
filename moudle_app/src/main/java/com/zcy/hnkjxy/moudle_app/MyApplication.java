@@ -21,21 +21,21 @@ import org.acra.sender.ReportSenderException;
 /**
  * Created by zhang chen yang on 2017/11/2 0002.
  */
-@ReportsCrashes(
-        mailTo = "911152556@qq.com",
-        mode = ReportingInteractionMode.DIALOG,
-        customReportContent = {
-                ReportField.APP_VERSION_NAME,
-                ReportField.ANDROID_VERSION,
-                ReportField.PHONE_MODEL,
-                ReportField.CUSTOM_DATA,
-                ReportField.BRAND,
-                ReportField.STACK_TRACE,
-                ReportField.LOGCAT,
-                ReportField.USER_COMMENT},
-        resToastText = R.string.res_toast_text,
-        resDialogText = R.string.res_dialog_text,
-        resDialogTitle = R.string.res_dialog_title)
+//@ReportsCrashes(
+//        mailTo = "911152556@qq.com",
+//        mode = ReportingInteractionMode.DIALOG,
+//        customReportContent = {
+//                ReportField.APP_VERSION_NAME,
+//                ReportField.ANDROID_VERSION,
+//                ReportField.PHONE_MODEL,
+//                ReportField.CUSTOM_DATA,
+//                ReportField.BRAND,
+//                ReportField.STACK_TRACE,
+//                ReportField.LOGCAT,
+//                ReportField.USER_COMMENT},
+//        resToastText = R.string.res_toast_text,
+//        resDialogText = R.string.res_dialog_text,
+//        resDialogTitle = R.string.res_dialog_title)
 public class MyApplication extends BaseApplication {
     private RefWatcher refWatcher;
 
@@ -54,25 +54,21 @@ public class MyApplication extends BaseApplication {
         LeakCanary.install(this);
     }
 
-    public static RefWatcher getRefWatcher(Context context) {
-        MyApplication application = (MyApplication) context.getApplicationContext();
-        return application.refWatcher;
-    }
 
     /**
      * 发送崩溃日志
      */
-    private class CrashReportSender implements ReportSender {
-        CrashReportSender() {
-            ACRA.getErrorReporter().putCustomData("PLATFORM", "ANDROID");
-            ACRA.getErrorReporter().putCustomData("BUILD_ID", android.os.Build.ID);
-            ACRA.getErrorReporter().putCustomData("DEVICE_NAME", android.os.Build.PRODUCT);
-        }
-
-        @Override
-        public void send(Context context, CrashReportData crashReportData) throws ReportSenderException {
-            EmailIntentSender emailSender = new EmailIntentSender(null);
-            emailSender.send(context, crashReportData);
-        }
-    }
+//    private class CrashReportSender implements ReportSender {
+//        CrashReportSender() {
+//            ACRA.getErrorReporter().putCustomData("PLATFORM", "ANDROID");
+//            ACRA.getErrorReporter().putCustomData("BUILD_ID", android.os.Build.ID);
+//            ACRA.getErrorReporter().putCustomData("DEVICE_NAME", android.os.Build.PRODUCT);
+//        }
+//
+//        @Override
+//        public void send(Context context, CrashReportData crashReportData) throws ReportSenderException {
+//            EmailIntentSender emailSender = new EmailIntentSender(null);
+//            emailSender.send(context, crashReportData);
+//        }
+//    }
 }

@@ -106,10 +106,9 @@ public class Fragmentbrand extends LazyFragment implements MessageContract.IFrag
                             adapter.loadMoreEnd();
                         } else {
                             curPage++;
-
+                            messagePresenter.loadListMessage(curPage);
                             adapter.loadMoreComplete();
                         }
-                        messagePresenter.loadListMessage(curPage);
                     }
                 }, 2000);
             }

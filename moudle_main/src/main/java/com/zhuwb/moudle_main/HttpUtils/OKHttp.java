@@ -13,7 +13,6 @@ import okhttp3.Request;
 
 public class OKHttp {
 
-
     public static void requestNetwork(String url, Callback callback, FragmentActivity activity) {
         OkHttpClient client = new OkHttpClient();
         Request request = new Request.Builder().url(url).tag(activity).build();

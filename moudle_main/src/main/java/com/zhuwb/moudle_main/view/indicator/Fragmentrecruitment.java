@@ -108,11 +108,12 @@ public class Fragmentrecruitment extends LazyFragment implements MessageContract
                         //当返回数据小于10，说明已无数据，停止下拉刷新
                         if (messageBeanList.size() < 10) {
                             adapter.loadMoreEnd();
+
                         } else {
                             curPage++;
+                            messagePresenter.loadListMessage(curPage);
                             adapter.loadMoreComplete();
                         }
-                        messagePresenter.loadListMessage(curPage);
                     }
                 }, 2000);
             }

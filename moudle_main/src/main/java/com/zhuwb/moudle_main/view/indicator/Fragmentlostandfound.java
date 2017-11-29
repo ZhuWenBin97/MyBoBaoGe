@@ -83,7 +83,7 @@ public class Fragmentlostandfound extends LazyFragment implements MessageContrac
         mainbanner = (Banner) view1.findViewById(R.id.main_lv_banner);
 
         //newListView的实例
-        messagePresenter = new MainMessagePresenter(mold, type, this,getActivity());
+        messagePresenter = new MainMessagePresenter(mold, type, this, getActivity());
         messagePresenter.loadListMessage(curPage);
         messagePresenter.loadBannerMessage(mainbanner);
 
@@ -107,9 +107,11 @@ public class Fragmentlostandfound extends LazyFragment implements MessageContrac
                             adapter.loadMoreEnd();
                         } else {
                             curPage++;
+                            messagePresenter.loadListMessage(curPage);
                             adapter.loadMoreComplete();
+
                         }
-                        messagePresenter.loadListMessage(curPage);
+
                     }
                 }, 2000);
             }

@@ -39,7 +39,6 @@ public class MyRVAdapter extends BaseQuickAdapter<ListMessageitem.MessageBean, B
     protected void convert(final BaseViewHolder helper, final ListMessageitem.MessageBean item) {
         helper.getView(R.id.main_lv_item_marquee).setSelected(true);
         helper.setText(R.id.main_lv_item_typearea, Util.whitchArea(item.getMessage_zone_id()));
-        Log.i(TAG, "convert: " + item.getMessage_zone_id());
         helper.setText(R.id.main_lv_item_type, item.getMsg_type_name());
         helper.setText(R.id.main_lv_item_time, Util.getData(item.getMessage_verify_date()));
         helper.setText(R.id.main_lv_item_address, item.getMessage_ads());

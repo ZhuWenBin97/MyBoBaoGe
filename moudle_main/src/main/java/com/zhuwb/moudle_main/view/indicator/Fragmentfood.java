@@ -82,7 +82,7 @@ public class Fragmentfood extends LazyFragment implements MessageContract.IFragm
         mainbanner = (Banner) view1.findViewById(R.id.main_lv_banner);
 
         //newListView的实例
-        messagePresenter = new MainMessagePresenter(mold, type, this, getActivity());
+        messagePresenter = new MainMessagePresenter(mold, type, this,getActivity());
         messagePresenter.loadListMessage(curPage);
         messagePresenter.loadBannerMessage(mainbanner);
 
@@ -106,10 +106,9 @@ public class Fragmentfood extends LazyFragment implements MessageContract.IFragm
                             adapter.loadMoreEnd();
                         } else {
                             curPage++;
-
+                            messagePresenter.loadListMessage(curPage);
                             adapter.loadMoreComplete();
                         }
-                        messagePresenter.loadListMessage(curPage);
                     }
                 }, 2000);
             }
@@ -132,7 +131,7 @@ public class Fragmentfood extends LazyFragment implements MessageContract.IFragm
         curPage = 1;
         messageBeanList.clear();
         messagePresenter.destory();
-        messagePresenter = null;
+        messagePresenter=null;
     }
 
     @Override

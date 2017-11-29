@@ -10,7 +10,7 @@
     <RelativeLayout
         android:id="@+id/main_list_layouttitle"
         android:layout_width="match_parent"
-        android:layout_height="?actionBarSize"
+        android:layout_height="@dimen/size_50dp"
         android:background="@color/ThemeColor"
         app:layout_constraintTop_toTopOf="parent"
         >
