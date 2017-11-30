@@ -87,7 +87,7 @@ public class Fragmentinstantmessage extends Fragment implements MessageContract.
         mainbanner = (Banner) view1.findViewById(R.id.main_lv_banner);
 
         //调取P层中加载列表数据和轮播图数据
-        messagePresenter = new MainMessagePresenter(mold, type, this,getActivity());
+        messagePresenter = new MainMessagePresenter(mold, type, this, getActivity());
         messagePresenter.loadListMessage(curPage);
         messagePresenter.loadBannerMessage(mainbanner);
 

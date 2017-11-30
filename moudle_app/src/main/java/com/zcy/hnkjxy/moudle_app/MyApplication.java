@@ -6,6 +6,10 @@ import android.content.Context;
 import com.alibaba.android.arouter.launcher.ARouter;
 import com.guiying.module.common.base.BaseApplication;
 import com.guiying.module.common.utils.Utils;
+import com.luck.picture.lib.compress.Luban;
+import com.luck.picture.lib.model.FunctionConfig;
+import com.luck.picture.lib.model.FunctionOptions;
+import com.luck.picture.lib.model.PictureConfig;
 import com.squareup.leakcanary.LeakCanary;
 import com.squareup.leakcanary.RefWatcher;
 
@@ -52,6 +56,15 @@ public class MyApplication extends BaseApplication {
         //崩溃日志记录初始化
         ACRA.init(this);
         LeakCanary.install(this);
+
+        FunctionOptions options = new FunctionOptions.Builder()
+                .setType(FunctionConfig.TYPE_IMAGE)
+                .setCompress(true)
+                .setGrade(Luban.THIRD_GEAR)
+                .setNumComplete(true)
+                .create();
+
+        PictureConfig.getInstance().init(options);
     }
 
 

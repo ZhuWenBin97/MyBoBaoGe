@@ -69,10 +69,11 @@ public class ImageChooseActivity extends AppCompatActivity implements DetailImag
         vpFragment.setAdapter(new FragmentPagerAdapter(getSupportFragmentManager()) {
             @Override
             public Fragment getItem(int position) {
-                if (position == 1)
+                if (position == 1) {
                     return detailFragment;
-                else
+                } else {
                     return photoFragment;
+                }
             }
 
             @Override
@@ -127,7 +128,7 @@ public class ImageChooseActivity extends AppCompatActivity implements DetailImag
     public void onSelectImages(List<String> selectedImages) {
         Intent intent = getIntent();
         intent.putStringArrayListExtra(IMAGES_URI, (ArrayList<String>) selectedImages);
-        this.setResult(RESULT_CODE,intent);
+        this.setResult(RESULT_CODE, intent);
         this.finish();
     }
 

@@ -30,8 +30,8 @@ public class BannerParticularsPresenter implements IBannerParticularsPresenter {
     public void setImageAdapter(NineGridImageView nineGridImageView, String imgs, FragmentManager manager) {
         mManager = manager;
         nineGridImageView.setAdapter(madpter);
+        //图片裁剪
         String[] arrayimg = imgs.split("787311295");
-
         if (arrayimg.length >= 1) {
             for (int i = 0; i < arrayimg.length; i++) {
                 listimg.add(arrayimg[i]);
@@ -43,13 +43,19 @@ public class BannerParticularsPresenter implements IBannerParticularsPresenter {
                 listimg.add("http" + arrayimg2[i]);
             }
         }
+        //添加数据
         nineGridImageView.setImagesData(listimg);
     }
 
+    /**
+     * NineGridImageView适配器
+     */
     private NineGridImageViewAdapter<String> madpter = new NineGridImageViewAdapter<String>() {
 
         @Override
         protected void onDisplayImage(Context context, ImageView imageView, String s) {
+            //设置图片加载器，先加载0.1f清晰度的图片，不使用内存缓存
+            // ，使用磁盘缓存，当图片未加载出时有一张占位图
             Glide.with(context).load(s).thumbnail(0.1f)
                     .skipMemoryCache(true).diskCacheStrategy(DiskCacheStrategy.ALL)
                     .placeholder(R.mipmap.main_pictures_no)
@@ -62,6 +68,12 @@ public class BannerParticularsPresenter implements IBannerParticularsPresenter {
             return super.generateImageView(context);
         }
 
+        /**
+         * 九宫格图片中的图片点击事件
+         * @param context
+         * @param index
+         * @param list
+         */
         @Override
         protected void onItemImageClick(Context context, int index, List<String> list) {
             ZoomPhotoView.Create.build().addImages(listimg).show(mManager, "s");

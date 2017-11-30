@@ -120,6 +120,7 @@
         app:layout_constraintTop_toBottomOf="@id/main_release_message">
 
         <ImageView
+            android:id="@+id/main_release_selectImg"
             android:layout_width="@dimen/size_100dp"
             android:layout_height="@dimen/size_100dp"
             android:src="@mipmap/main_selectpirt"/>
