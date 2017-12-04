@@ -1,5 +1,5 @@
 <resources>
-    <string name="app_name">moudle_app</string>
+    <string name="app_name">垂直社区服务平台</string>
     <string name="res_toast_text">程序崩溃了</string>
     <string name="res_dialog_text">感谢您的支持</string>
     <string name="res_dialog_title">发送崩溃日志</string>

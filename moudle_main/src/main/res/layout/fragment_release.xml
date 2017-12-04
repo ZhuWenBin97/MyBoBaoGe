@@ -1,130 +1,177 @@
-<android.support.constraint.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
-                                             xmlns:app="http://schemas.android.com/apk/res-auto"
-                                             xmlns:tools="http://schemas.android.com/tools"
-                                             android:layout_width="match_parent"
-                                             android:layout_height="match_parent"
-                                             android:background="#f0f0f0"
-                                             tools:context="com.zhuwb.moudle_main.view.Fragmentgallery">
+<ScrollView
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context="com.zhuwb.moudle_main.view.Fragmentgallery">
 
-    <RelativeLayout
-        android:id="@+id/main_list_layouttitle"
+    <android.support.constraint.ConstraintLayout
         android:layout_width="match_parent"
-        android:layout_height="@dimen/size_50dp"
-        android:background="@color/ThemeColor"
-        app:layout_constraintTop_toTopOf="parent"
+        android:layout_height="match_parent"
+        android:background="#f0f0f0"
         >
-
-
-        <TextView
+        <RelativeLayout
+            android:id="@+id/main_list_layouttitle"
             android:layout_width="match_parent"
-            android:layout_height="match_parent"
+            android:layout_height="@dimen/size_50dp"
+            android:background="@color/ThemeColor"
+            app:layout_constraintTop_toTopOf="parent"
+            >
+
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:gravity="center"
+                android:text="@string/main_fragment_release"
+                android:textColor="@color/white"
+                android:textSize="@dimen/size_20dp"/>
+        </RelativeLayout>
+
+
+        <LinearLayout
+            android:id="@+id/main_release_arealayout"
+            android:layout_width="match_parent"
+            android:layout_height="@dimen/size_40dp"
+            android:background="@color/white"
+            android:gravity="center_vertical"
+            android:orientation="horizontal"
+            app:layout_constraintTop_toBottomOf="@id/main_list_layouttitle">
+
+            <TextView
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="2"
+                android:paddingLeft="@dimen/size_17dp"
+                android:text="@string/main_release_area"
+                android:textSize="@dimen/size_20dp"/>
+
+            <Spinner
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="5"
+                android:entries="@array/typearea"
+                android:gravity="center"
+                android:paddingLeft="10dp"
+
+                >
+
+            </Spinner>
+
+        </LinearLayout>
+
+        <LinearLayout
+            android:id="@+id/main_release_leimulayout"
+            android:layout_width="match_parent"
+            android:layout_height="@dimen/size_40dp"
+            android:layout_marginTop="@dimen/size_10dp"
+            android:background="@color/white"
+            android:gravity="center_vertical"
+            android:orientation="horizontal"
+            app:layout_constraintTop_toBottomOf="@id/main_release_arealayout">
+
+            <TextView
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="2"
+                android:paddingLeft="@dimen/size_17dp"
+                android:text="@string/main_release_leimu"
+                android:textSize="@dimen/size_20dp"/>
+
+            <Spinner
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="5"
+                android:paddingLeft="10dp"
+
+                >
+
+            </Spinner>
+
+        </LinearLayout>
+
+
+        <LinearLayout
+            android:id="@+id/main_release_message"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/size_10dp"
+            android:background="@color/white"
+            android:orientation="vertical"
+            app:layout_constraintTop_toBottomOf="@id/main_release_leimulayout"
+            >
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="@dimen/size_20dp"
+                android:text="@string/main_release_message"
+                android:textSize="@dimen/size_17dp"/>
+
+            <EditText
+                android:layout_width="match_parent"
+                android:layout_height="100dp"
+                android:background="@null"
+                android:gravity="top"
+                android:hint="@string/main_release_EditHint"
+                android:maxLength="180"
+                android:padding="@dimen/size_10dp"
+                android:textSize="@dimen/size_15dp"
+                />
+
+            <android.support.v7.widget.RecyclerView
+                android:id="@+id/main_release_recycler"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="5dp"
+                android:layout_marginTop="5dp"
+                android:overScrollMode="never"/>
+        </LinearLayout>
+
+        <LinearLayout
+            android:id="@+id/main_release_telephonelayout"
+            android:layout_width="match_parent"
+            android:layout_height="@dimen/size_30dp"
+            android:layout_marginTop="@dimen/size_10dp"
+            android:background="@color/white"
+            android:gravity="center_vertical"
+            android:orientation="horizontal"
+            app:layout_constraintTop_toBottomOf="@id/main_release_message">
+
+            <TextView
+                android:id="@+id/main_release_telephone"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:drawablePadding="@dimen/size_10dp"
+                android:gravity="center_vertical"
+                android:text="@string/main_release_hint_phone"
+                android:textSize="@dimen/size_17dp"/>
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:paddingLeft="@dimen/size_20dp"
+                android:text="@string/main_release_hint_number"
+                android:textSize="@dimen/size_17dp"/>
+
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="@dimen/size_30dp"
+            android:layout_marginTop="@dimen/size_10dp"
             android:gravity="center"
-            android:text="@string/main_fragment_release"
-            android:textColor="@color/white"
-            android:textSize="@dimen/size_20dp"/>
-    </RelativeLayout>
+            app:layout_constraintTop_toBottomOf="@id/main_release_telephonelayout">
 
-    <LinearLayout
-        android:id="@+id/main_release_arealayout"
-        android:layout_width="match_parent"
-        android:layout_height="@dimen/size_40dp"
-        android:background="@color/white"
-        android:gravity="center_vertical"
-        android:orientation="horizontal"
-        app:layout_constraintTop_toBottomOf="@id/main_list_layouttitle">
-
-        <TextView
-            android:layout_width="0dp"
-            android:layout_height="wrap_content"
-            android:layout_weight="2"
-            android:paddingLeft="@dimen/size_20dp"
-            android:text="@string/main_release_area"
-            android:textSize="@dimen/size_20dp"/>
-
-        <Spinner
-            android:layout_width="0dp"
-            android:layout_height="wrap_content"
-            android:layout_weight="5"
-            android:paddingLeft="10dp"
-
-            >
-
-        </Spinner>
-
-    </LinearLayout>
-
-    <LinearLayout
-        android:id="@+id/main_release_leimulayout"
-        android:layout_width="match_parent"
-        android:layout_height="@dimen/size_40dp"
-        android:layout_marginTop="@dimen/size_10dp"
-        android:background="@color/white"
-        android:gravity="center_vertical"
-        android:orientation="horizontal"
-        app:layout_constraintTop_toBottomOf="@id/main_release_arealayout">
-
-        <TextView
-            android:layout_width="0dp"
-            android:layout_height="wrap_content"
-            android:layout_weight="2"
-            android:paddingLeft="@dimen/size_20dp"
-            android:text="@string/main_release_leimu"
-            android:textSize="@dimen/size_20dp"/>
-
-        <Spinner
-            android:layout_width="0dp"
-            android:layout_height="wrap_content"
-            android:layout_weight="5"
-            android:paddingLeft="10dp"
-
-            >
-
-        </Spinner>
-
-    </LinearLayout>
-
-
-    <LinearLayout
-        android:id="@+id/main_release_message"
-        android:layout_width="match_parent"
-        android:layout_height="@dimen/size_150dp"
-        android:layout_marginTop="@dimen/size_10dp"
-        android:background="@color/white"
-        android:orientation="vertical"
-        app:layout_constraintTop_toBottomOf="@id/main_release_leimulayout"
-        >
-
-        <TextView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginLeft="@dimen/size_20dp"
-            android:text="@string/main_release_message"
-            android:textSize="@dimen/size_20dp"/>
-
-        <EditText
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:background="@null"
-            android:hint="@string/main_release_EditHint"
-            android:maxLength="180"
-            android:textSize="@dimen/size_15dp"
-            />
-    </LinearLayout>
-
-    <LinearLayout
-        android:layout_marginTop="@dimen/size_10dp"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:background="@color/white"
-        android:orientation="horizontal"
-        app:layout_constraintTop_toBottomOf="@id/main_release_message">
-
-        <ImageView
-            android:id="@+id/main_release_selectImg"
-            android:layout_width="@dimen/size_100dp"
-            android:layout_height="@dimen/size_100dp"
-            android:src="@mipmap/main_selectpirt"/>
-    </LinearLayout>
-
-
-</android.support.constraint.ConstraintLayout>
+            <Button
+                android:layout_width="300dp"
+                android:layout_height="wrap_content"
+                android:background="@drawable/home_sqmessage_shape"
+                android:backgroundTint="@color/ThemeColor"
+                android:text="@string/main_fragment_release"
+                android:textColor="@color/white"
+                android:textSize="@dimen/size_17dp"/>
+        </LinearLayout>
+    </android.support.constraint.ConstraintLayout>
+</ScrollView>

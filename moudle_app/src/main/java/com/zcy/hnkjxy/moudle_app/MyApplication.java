@@ -12,6 +12,7 @@ import com.luck.picture.lib.model.FunctionOptions;
 import com.luck.picture.lib.model.PictureConfig;
 import com.squareup.leakcanary.LeakCanary;
 import com.squareup.leakcanary.RefWatcher;
+import com.yalantis.ucrop.entity.LocalMedia;
 
 import org.acra.ACRA;
 import org.acra.ReportField;
@@ -21,6 +22,8 @@ import org.acra.collector.CrashReportData;
 import org.acra.sender.EmailIntentSender;
 import org.acra.sender.ReportSender;
 import org.acra.sender.ReportSenderException;
+
+import java.util.List;
 
 /**
  * Created by zhang chen yang on 2017/11/2 0002.
@@ -42,7 +45,6 @@ import org.acra.sender.ReportSenderException;
 //        resDialogTitle = R.string.res_dialog_title)
 public class MyApplication extends BaseApplication {
     private RefWatcher refWatcher;
-
 
     @Override
     public void onCreate() {

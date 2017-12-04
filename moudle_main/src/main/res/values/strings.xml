@@ -29,4 +29,6 @@
     <string name="main_release_leimu">标题:</string>
     <string name="main_release_EditHint">请将文字控制在90个之内</string>
     <string name="main_release_message">消息内容:</string>
+    <string name="main_release_hint_phone">手机</string>
+    <string name="main_release_hint_number">17673059740</string>
 </resources>

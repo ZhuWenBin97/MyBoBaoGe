@@ -82,7 +82,7 @@ public class Fragmentbrand extends LazyFragment implements MessageContract.IFrag
         mainbanner = (Banner) view1.findViewById(R.id.main_lv_banner);
 
         //newListView的实例
-        messagePresenter = new MainMessagePresenter(mold, type, this,getActivity());
+        messagePresenter = new MainMessagePresenter(mold, type, this, getActivity());
         messagePresenter.loadListMessage(curPage);
         messagePresenter.loadBannerMessage(mainbanner);
 
@@ -131,7 +131,7 @@ public class Fragmentbrand extends LazyFragment implements MessageContract.IFrag
         curPage = 1;
         messageBeanList.clear();
         messagePresenter.destory();
-        messagePresenter=null;
+        messagePresenter = null;
     }
 
     @Override

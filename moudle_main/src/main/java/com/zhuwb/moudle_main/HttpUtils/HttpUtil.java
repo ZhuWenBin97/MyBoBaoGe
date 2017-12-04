@@ -65,5 +65,14 @@ public class HttpUtil {
         return url;
     }
 
+    public static String getType() {
+        map.clear();
+        map.put("action", "type");
+        map.put("func", "getTypeList");
+        map.put("search","");
+        String url = Util.getUrl(map);
+        return url;
+    }
+
 
 }

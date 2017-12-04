@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string-array name="typearea">
+        <item>洪合</item>
+        <item>濮院</item>
+        <item>海宁</item>
+        <item>衡扇</item>
+    </string-array>
+</resources>

@@ -1,18 +1,14 @@
 package com.zhuwb.moudle_main.view;
 
-import android.content.Context;
 import android.content.Intent;
-import android.graphics.Color;
 import android.os.Bundle;
 import android.support.annotation.Nullable;
 import android.support.v4.app.FragmentManager;
 import android.support.v4.view.ViewPager;
-import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 
-import com.alibaba.android.arouter.facade.annotation.Route;
 import com.guiying.module.common.base.LazyFragment;
 import com.zhuwb.lib_magicindicator.MagicIndicator;
 import com.zhuwb.moudle_main.R;
@@ -21,13 +17,9 @@ import com.zhuwb.moudle_main.bean.BannerMessage;
 import com.zhuwb.moudle_main.presenter.IMessagePresenter;
 import com.zhuwb.moudle_main.presenter.MessagePresenter;
 
-
 import org.greenrobot.eventbus.EventBus;
 import org.greenrobot.eventbus.Subscribe;
 import org.greenrobot.eventbus.ThreadMode;
-
-import java.io.Serializable;
-import java.util.List;
 
 import butterknife.BindView;
 import butterknife.ButterKnife;

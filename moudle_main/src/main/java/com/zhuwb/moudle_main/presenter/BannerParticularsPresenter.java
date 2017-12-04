@@ -31,18 +31,20 @@ public class BannerParticularsPresenter implements IBannerParticularsPresenter {
         mManager = manager;
         nineGridImageView.setAdapter(madpter);
         //图片裁剪
+        Log.i(TAG, "setImageAdapter: " + "img" + imgs);
         String[] arrayimg = imgs.split("787311295");
-        if (arrayimg.length >= 1) {
-            for (int i = 0; i < arrayimg.length; i++) {
-                listimg.add(arrayimg[i]);
-                Log.i(TAG, "setImageAdapter: ");
-            }
-        } else {
-            String[] arrayimg2 = imgs.split("http");
-            for (int i = 0; i < arrayimg.length; i++) {
-                listimg.add("http" + arrayimg2[i]);
-            }
+//         if (arrayimg.length > 2) {
+        // String[] arrayimg2 = imgs.split("http");
+        for (int i = 0; i < arrayimg.length; i++) {
+            listimg.add(arrayimg[i].replace("_115", ""));
+            Log.i(TAG, "setImageAdapter: " + arrayimg[i].replace("_115", ""));
         }
+//        } else {
+//            for (int i = 0; i < arrayimg.length; i++) {
+//                listimg.add(arrayimg[i]);
+//                Log.i(TAG, "setImageAdapter: " + arrayimg[i]);
+//            }
+//      }
         //添加数据
         nineGridImageView.setImagesData(listimg);
     }
@@ -60,7 +62,7 @@ public class BannerParticularsPresenter implements IBannerParticularsPresenter {
                     .skipMemoryCache(true).diskCacheStrategy(DiskCacheStrategy.ALL)
                     .placeholder(R.mipmap.main_pictures_no)
                     .into(imageView);
-            Log.i(TAG, "onDisplayImage: " + s);
+            //Log.i(TAG, "onDisplayImage: " + s);
         }
 
         @Override
